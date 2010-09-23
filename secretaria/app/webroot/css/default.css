@@ -1,0 +1,649 @@
+/*
+Design by Free CSS Templates
+http: //www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	margin-top: 10px;
+	padding: 0;
+	background: #787878 url(/secretaria/img/img01.jpg) repeat left top;
+	text-align: justify;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	color: #818181;
+}
+
+h1, h2, h3 {
+	margin-top: 0;
+	text-transform: uppercase;
+	color: #449284;
+}
+
+h1 {
+	font-size: 1.5em;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+ul {
+}
+
+a {
+	text-decoration: none;
+	color: #449284;
+}
+
+a: hover {
+	border-bottom: none;
+}
+
+a img {
+	border: none;
+}
+
+img.left {
+	float: left;
+	margin: 0 20px 0 0;
+}
+
+img.right {
+	float: right;
+	margin: 0 0 0 20px;
+}
+
+#header {
+	width: 960px;
+	margin: 0 auto;
+	height: 100px;
+}
+
+/* Header */
+
+#logo {
+	background: transparent url(/secretaria/img/topo.png) no-repeat scroll left top;
+	width: 960px;
+	height: 100px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#logo h1, #logo p {
+	float: left;
+	margin: 0;
+	color: #449284;
+}
+
+#logo span {
+	color: #000000;
+}
+
+#logo h1 {
+	padding: 25px 0 0 0;
+	letter-spacing: -1px;
+	text-transform: lowercase;
+	font-weight: normal;
+	font-size: 3em;
+}
+
+#logo p {
+	text-transform: uppercase;
+	padding: 47px 0 0 3px;
+	font-size: 10px;
+	color: #110E0F;
+}
+
+#logo a {
+	border: none;
+	text-decoration: none;
+	color: #449284;
+}
+
+/* Login */
+
+#login {
+	width: 250px;
+	margin: 0px auto;
+	text-align: left;
+	padding: 15px;
+	border: 1px dashed #333;
+	background-color: #eee;
+
+}
+
+/* Menu */
+
+#menu {
+	width: 960px;
+	margin: 0px auto;
+	padding: 0px;
+	height: 52px;
+	background: url(/secretaria/img/img02.jpg) no-repeat left top;
+}
+
+#menu ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	height: 33px;
+	margin: 0px;
+	padding: 19px 30px 0px 30px;
+	text-decoration: none;
+	text-transform: capitalize;
+	background: url(/secretaria/img/img03.jpg) no-repeat right 50%;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+#menu a: hover {
+	color: #FFFFFF;
+}
+
+#menu .current_page_item a {
+	color: #FFFFFF;
+}
+
+/* Wrapper */
+
+#wrapper {
+}
+
+/* Page */
+
+#page {
+	width: 960px;
+	margin: 0px auto;
+	background: url(/secretaria/img/img05.jpg) repeat-y left top;
+}
+
+#page-bgtop {
+	background: url(/secretaria/img/img04.jpg) no-repeat left top;
+}
+
+#page-bgbtm {
+	background: url(/secretaria/img/img06.jpg) no-repeat left bottom;
+}
+
+
+/* Latest Post */
+
+#latest-post {
+	padding: 20px;
+	border: 1px solid #E7E7E7;
+}
+
+/* Content */
+
+#content {
+	float: left;
+	width: 720px;
+	margin: 0px;
+	padding: 20px 0px 0px 0px;
+}
+
+.post {
+	padding-bottom: 15px;
+	padding-left: 10px;
+	/*line-height: 200%;*/
+}
+
+.post h1 {
+	font-weight: normal;
+}
+
+.title {
+	height: 50px;
+	margin: 0px 10px;
+	padding: 11px 0px 4px 10px;
+	text-transform: capitalize;
+	font-weight: normal;
+	background: url(/secretaria/img/img12.jpg) no-repeat left top;
+}
+
+.title a {
+	border-bottom: none;
+	color: #449284;
+}
+
+.title a: hover {
+}
+
+.byline {
+	margin: -10px 20px 20px 20px;
+}
+
+.tag {
+	padding: 0 15px;
+}
+
+.entry {
+	padding: 0 20px;
+}
+
+.links {
+	padding: 4px 0px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.links a {
+	border: none;
+}
+
+.links a: hover {
+}
+
+/* Sidebars */
+
+#sidebar1 {
+	float: left;
+	padding-top: 20px;
+	padding-left: 10px;
+}
+
+#sidebar2 {
+	float: right;
+}
+
+#sidebar1 ul {
+	padding-bottom: 20px;
+}
+
+#sidebar1 li {
+	background: url(/secretaria/img/img11.jpg) no-repeat left bottom;
+}
+
+#sidebar1 li ul {
+	background: url(/secretaria/img/img10.jpg) repeat-y left top;
+}
+
+#sidebar1 li li {
+	background: url(/secretaria/img/img08.gif) no-repeat 0 6px;
+}
+
+#sidebar1 li h2 {
+	height: 25px;
+	padding-top: 15px;
+	background: url(/secretaria/img/img09.jpg) no-repeat left top;
+	color: #333333;
+}
+
+.sidebar {
+	float: left;
+	width: 220px;
+	padding: 10px 0 0 0;
+	font-size: 16px;
+}
+
+.sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar li {
+	padding: 0 0 20px 0;
+}
+
+.sidebar li ul {
+}
+
+.sidebar li li {
+	margin: 0 10px 0 15px;
+	padding: 3px 0 3px 20px;
+	border-bottom: 1px #B5B5B5 dashed;
+	background: url(/secretaria/img/img08.gif) no-repeat 0 13px;
+	text-align: left;
+}
+
+
+.sidebar li h2 {
+	height: 30px;
+	margin: 0 0 0 0;
+	padding: 8px 15px 0px 35px;
+	background: url(/secretaria/img/img07.jpg) no-repeat left top;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+.sidebar a {
+}
+
+/* Search */
+
+#searchform {
+	margin: 0;
+	padding: 0 0 0 0;
+}
+
+#searchform br {
+	display: none;
+}
+
+#searchform h2 {
+}
+
+#s {
+	margin: 10px 0px 0 15px;
+	padding: 2px 2px;
+	width: 180px;
+	height: 18px;
+	border: 1px solid #949494;
+	background: #FFFFFF;
+	font-size: 10px;
+	color: #000000;
+}
+
+#x {
+	margin: 0;
+	padding: 2px 5px;
+	height: 25px;
+	background: #CA8186;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #CCCCCC;
+}
+/* Calendar */
+
+#calendar_wrap {
+	padding: 0 15px;
+	text-align: center;
+}
+
+#calendar_wrap table {
+	width: 100%;
+}
+
+#calendar_wrap th {
+}
+
+#calendar_wrap td {
+}
+
+#calendar_wrap tfoot td {
+	border: none;
+}
+
+#calendar_wrap tfoot td#prev {
+	text-align: left;
+	font-weight: bold;
+	border: none;
+}
+
+#calendar_wrap tfoot td#prev a {
+	border: none;
+}
+
+#calendar_wrap tfoot td#next {
+	text-align: right;
+	font-weight: bold;
+	border: none;
+}
+
+#calendar_wrap tfoot td#next a {
+	border: none;
+}
+
+/* Footer */
+
+#footer {
+	width: 940px;
+	height: 10px;
+	margin: 0 auto;
+	padding-left: 20px;
+}
+
+#footer p {
+	margin: 0;
+	padding: 25px 0 0 0;
+	text-align: left;
+	font-size: smaller;
+}
+
+#footer a {
+}
+
+#footer .link {
+	float: right;
+}
+
+#footer .copyright {
+	float: left;
+}
+
+/* Campos formulario */
+input[type=submit],
+input[type=button] {
+	background: transparent url(/secretaria/img/img13.jpg) repeat-x scroll left top;
+	border: #d7d5d6 1px solid;
+	width: 120px;
+	font-size: 10pt
+	height: 22px;
+}
+input[type=password],
+input[type=text] {
+    border: #d7d5d6 1px solid;
+    background-color : white;
+    color : black;
+    font-size: 10pt
+}
+select{ 
+    border: #d7d5d6 1px solid;
+    background-color : white;
+    color : black;
+    font-size: 10pt
+}
+textarea {
+	border: #d7d5d6 1px solid;
+    background-color : white;
+    color : black;
+    font-size: 10pt	
+}
+/* Listagem */
+
+.listagem {
+	width: 100%;
+}
+
+.listagem th {
+	background: transparent url(/secretaria/img/img14.jpg) repeat-x scroll left top;
+	color: #FFF;
+	height: 33px;
+}
+
+.listagem .destaque0 {
+	background: transparent url(/secretaria/img/img15.jpg) repeat-x scroll left top;
+	color: #000;
+	height: 25px;
+}
+
+.listagem .destaque0 td{
+	text-decoration: underline;
+}
+
+.listagem .destaque1 {
+	background: transparent url(/secretaria/img/img16.jpg) repeat scroll left top;
+	color: #000;
+	height: 25px;
+}
+.listagem .destaque1 td{
+	text-decoration: underline;
+}
+
+/* Pagina��o */
+
+.paginate {
+	align: center;
+}
+.paginate .current {
+	color: red;
+}
+
+.message {
+	color: red;
+	font-variant: small-caps;
+	font-weight: bold;
+}
+
+/* Tables */
+table {
+/*	background: #fff;*/
+	clear: both;
+	color: #333;
+	margin-bottom: 10px;
+	width: 100%;
+}
+th {
+	background: #f2f2f2;
+	border:1px solid #bbb;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	text-align: center;
+}
+th a {
+	background:#f2f2f2;
+	display: block;
+	padding: 2px 4px;
+	text-decoration: none;
+}
+th a:hover {
+	background: #ccc;
+	color: #333;
+	text-decoration: none;
+}
+table tr td {
+/*	background: #fff;*/
+	text-align: left;
+	vertical-align: top;
+}
+table tr.altrow td {
+	background: #f4f4f4;
+}
+td.actions {
+	text-align: center;
+	white-space: nowrap;
+}
+td.actions a {
+	margin: 0px 6px;
+}
+.cake-sql-log table {
+	background: #f4f4f4;
+}
+.cake-sql-log td {
+	padding: 4px 8px;
+	text-align: left;
+}
+
+/* Paging */
+div.paging {
+	background:#fff;
+	color: #ccc;
+	margin-bottom: 2em;
+	text-align:center;
+}
+div.paging div.disabled {
+	color: #ddd;
+	display: inline;
+}
+div.paging span {
+}
+div.paging span.current {
+	color: #000;
+}
+div.paging span a {
+}
+
+
+
+/* Scaffold View */
+dl {
+	line-height: 2em;
+	margin: 0em 0em;
+	width: 60%;
+}
+dl.altrow {
+	background: #f4f4f4;
+}
+dt {
+	font-weight: bold;
+	padding-left: 4px;
+	vertical-align: top;
+}
+dd {
+	margin-left: 8em;
+	margin-top: -2em;
+	vertical-align: top;
+}
+
+/*  Actions  */
+div.actions ul {
+	margin: 0px 0;
+	padding: 0;
+}
+div.actions li {
+	display: inline;
+	list-style-type: none;
+	line-height: 2em;
+	margin: 0 2em 0 0;
+	white-space: nowrap;
+}
+div.actions ul li a {
+	background:#FFFFFF url(/secretaria/img/img17.jpg) repeat scroll 0 0;
+	color: #003d4c;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	width: 153px;
+}
+div.actions ul li a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+div .input label {
+float:left;
+width:170px;
+}
+
+/* Notices and Errors */
+p.error {
+	background-color: #e32;
+	color: #fff;
+	font-family: Courier, monospace;
+	font-size: 120%;
+	line-height: 140%;
+	padding: 0.8em;
+	margin: 1em 0;
+}
+div.error-message {
+color:red;
+font-size:10pt;
+font-style:italic;
+}
+/* Forms */
+form div.required {
+	color: #333;
+	font-weight: bold;
+}
+form div.error {
+	font-weight: bold;
+}
