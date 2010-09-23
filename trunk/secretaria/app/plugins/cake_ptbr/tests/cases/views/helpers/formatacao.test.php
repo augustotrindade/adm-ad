@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Testes do helper de formatação
  *
@@ -8,7 +8,7 @@
  * @filesource
  * @author        Juan Basso <jrbasso@gmail.com>
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
- */
+ */ 
 
 App::import('Helper', array('CakePtbr.Formatacao', 'Time', 'Number'));
 
