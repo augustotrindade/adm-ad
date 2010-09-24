@@ -7,7 +7,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	margin-top: 10px;
 	padding: 0;
-	background: #787878 url(/secretaria/img/img01.jpg) repeat left top;
+	background: #787878 url(../img/img01.jpg) repeat left top;
 	text-align: justify;
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 16px;
@@ -68,7 +68,7 @@ img.right {
 /* Header */
 
 #logo {
-	background: transparent url(/secretaria/img/topo.png) no-repeat scroll left top;
+	background: transparent url(../img/topo.png) no-repeat scroll left top;
 	width: 960px;
 	height: 100px;
 	margin: 0 auto;
@@ -125,7 +125,7 @@ img.right {
 	margin: 0px auto;
 	padding: 0px;
 	height: 52px;
-	background: url(/secretaria/img/img02.jpg) no-repeat left top;
+	background: url(../img/img02.jpg) no-repeat left top;
 }
 
 #menu ul {
@@ -146,7 +146,7 @@ img.right {
 	padding: 19px 30px 0px 30px;
 	text-decoration: none;
 	text-transform: capitalize;
-	background: url(/secretaria/img/img03.jpg) no-repeat right 50%;
+	background: url(../img/img03.jpg) no-repeat right 50%;
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 16px;
 	color: #FFFFFF;
@@ -170,15 +170,15 @@ img.right {
 #page {
 	width: 960px;
 	margin: 0px auto;
-	background: url(/secretaria/img/img05.jpg) repeat-y left top;
+	background: url(../img/img05.jpg) repeat-y left top;
 }
 
 #page-bgtop {
-	background: url(/secretaria/img/img04.jpg) no-repeat left top;
+	background: url(../img/img04.jpg) no-repeat left top;
 }
 
 #page-bgbtm {
-	background: url(/secretaria/img/img06.jpg) no-repeat left bottom;
+	background: url(../img/img06.jpg) no-repeat left bottom;
 }
 
 
@@ -214,7 +214,7 @@ img.right {
 	padding: 11px 0px 4px 10px;
 	text-transform: capitalize;
 	font-weight: normal;
-	background: url(/secretaria/img/img12.jpg) no-repeat left top;
+	background: url(../img/img12.jpg) no-repeat left top;
 }
 
 .title a {
@@ -267,21 +267,21 @@ img.right {
 }
 
 #sidebar1 li {
-	background: url(/secretaria/img/img11.jpg) no-repeat left bottom;
+	background: url(../img/img11.jpg) no-repeat left bottom;
 }
 
 #sidebar1 li ul {
-	background: url(/secretaria/img/img10.jpg) repeat-y left top;
+	background: url(../img/img10.jpg) repeat-y left top;
 }
 
 #sidebar1 li li {
-	background: url(/secretaria/img/img08.gif) no-repeat 0 6px;
+	background: url(../img/img08.gif) no-repeat 0 6px;
 }
 
 #sidebar1 li h2 {
 	height: 25px;
 	padding-top: 15px;
-	background: url(/secretaria/img/img09.jpg) no-repeat left top;
+	background: url(../img/img09.jpg) no-repeat left top;
 	color: #333333;
 }
 
@@ -309,7 +309,7 @@ img.right {
 	margin: 0 10px 0 15px;
 	padding: 3px 0 3px 20px;
 	border-bottom: 1px #B5B5B5 dashed;
-	background: url(/secretaria/img/img08.gif) no-repeat 0 13px;
+	background: url(../img/img08.gif) no-repeat 0 13px;
 	text-align: left;
 }
 
@@ -318,7 +318,7 @@ img.right {
 	height: 30px;
 	margin: 0 0 0 0;
 	padding: 8px 15px 0px 35px;
-	background: url(/secretaria/img/img07.jpg) no-repeat left top;
+	background: url(../img/img07.jpg) no-repeat left top;
 	font-size: 16px;
 	color: #FFFFFF;
 }
@@ -433,7 +433,7 @@ img.right {
 /* Campos formulario */
 input[type=submit],
 input[type=button] {
-	background: transparent url(/secretaria/img/img13.jpg) repeat-x scroll left top;
+	background: transparent url(../img/img13.jpg) repeat-x scroll left top;
 	border: #d7d5d6 1px solid;
 	width: 120px;
 	font-size: 10pt
@@ -465,13 +465,13 @@ textarea {
 }
 
 .listagem th {
-	background: transparent url(/secretaria/img/img14.jpg) repeat-x scroll left top;
+	background: transparent url(../img/img14.jpg) repeat-x scroll left top;
 	color: #FFF;
 	height: 33px;
 }
 
 .listagem .destaque0 {
-	background: transparent url(/secretaria/img/img15.jpg) repeat-x scroll left top;
+	background: transparent url(../img/img15.jpg) repeat-x scroll left top;
 	color: #000;
 	height: 25px;
 }
@@ -481,7 +481,7 @@ textarea {
 }
 
 .listagem .destaque1 {
-	background: transparent url(/secretaria/img/img16.jpg) repeat scroll left top;
+	background: transparent url(../img/img16.jpg) repeat scroll left top;
 	color: #000;
 	height: 25px;
 }
@@ -607,7 +607,7 @@ div.actions li {
 	white-space: nowrap;
 }
 div.actions ul li a {
-	background:#FFFFFF url(/secretaria/img/img17.jpg) repeat scroll 0 0;
+	background:#FFFFFF url(../img/img17.jpg) repeat scroll 0 0;
 	color: #003d4c;
 	text-decoration: none;
 	display: block;
