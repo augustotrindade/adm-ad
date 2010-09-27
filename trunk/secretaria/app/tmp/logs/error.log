@@ -56,3 +56,5 @@
 2010-04-05 23:50:22 Warning: Warning (512): Method HtmlHelper::href does not exist in [CORE/cake/libs/view/helper.php, line 143]
 2010-04-08 20:48:33 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'order' in 'where clause'</span> in [CORE/cake/libs/model/datasources/dbo_source.php, line 527]
 2010-04-22 22:20:40 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/ocorrencias/index.ctp, line 13]
+2010-09-26 12:42:29 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Membro.situacao_id' in 'where clause'</span> in [CORE/cake/libs/model/datasources/dbo_source.php, line 527]
+2010-09-26 12:42:29 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/membros/index.ctp, line 24]
