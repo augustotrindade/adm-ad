@@ -26,18 +26,34 @@ class MembrosController extends AppController {
 			$condicao = array_merge($condicao, array('Membro.nome like'=>"%$nome%"));
 		}
 		//situacao
-		if (isset($this->data['Membro']['situacao_id']) && $this->data['Membro']['situacao_id']!='') {
-			$this->set('situacao',$this->data['Membro']['situacao_id']);
-			$situacao = $this->data['Membro']['situacao_id'];
-			$condicao = array_merge($condicao, array('Membro.situacao_id'=>$situacao));
+		if (isset($this->data['Membro']['situacao']) && $this->data['Membro']['situacao']!='') {
+			$this->set('situacao',$this->data['Membro']['situacao']);
+			$situacao = $this->data['Membro']['situacao'];
+			$condicao = array_merge($condicao, array('Membro.situacao'=>$situacao));
 		} elseif (isset($this->params['named']['situacao']) && $this->params['named']['situacao']!='') { 
 			$this->set('situacao',$this->params['named']['situacao']);
 			$situacao = $this->params['named']['situacao'];
-			$this->data = array('Membro'=>array('situacao_id'=>$this->params['named']['situacao']));
-			$condicao = array_merge($condicao, array('Membro.situacao_id'=>$situacao));
+			$this->data = array('Membro'=>array('situacao'=>$this->params['named']['situacao']));
+			$condicao = array_merge($condicao, array('Membro.situacao'=>$situacao));
 		} else {
-			$this->set('situacao','');
-			$situacao = '';
+			$this->set('situacao','1');
+			$situacao = '1';
+			$this->data = array('Membro'=>array('situacao'=>$situacao));
+			$condicao = array_merge($condicao, array('Membro.situacao'=>"$situacao"));
+		}
+		//congregacao
+		if (isset($this->data['Membro']['congregacao_id']) && $this->data['Membro']['congregacao_id']!='') {
+			$this->set('congregacao',$this->data['Membro']['congregacao_id']);
+			$congregacao = $this->data['Membro']['congregacao_id'];
+			$condicao = array_merge($condicao, array('Membro.congregacao_id'=>$congregacao));
+		} elseif (isset($this->params['named']['congregacao']) && $this->params['named']['congregacao']!='') { 
+			$this->set('congregacao',$this->params['named']['congregacao']);
+			$congregacao = $this->params['named']['congregacao'];
+			$this->data = array('Membro'=>array('congregacao_id'=>$this->params['named']['congregacao']));
+			$condicao = array_merge($condicao, array('Membro.congregacao_id'=>$congregacao));
+		} else {
+			$this->set('congregacao','');
+			$congregacao = '';
 			//$condicao = array_merge($condicao);
 		}
 		//ID
@@ -172,6 +188,7 @@ class MembrosController extends AppController {
 		$this->layout = 'pdf'; 
 		if (isset($this->params['form']['cartao'])) {
 			$this->set('membros',$this->Membro->find('all',array('conditions'=>array('Membro.id'=>$this->params['form']['cartao']))));
+			$this->set('obj',$this);
 		} else {
 			$this->set('membros',array());
 		}
