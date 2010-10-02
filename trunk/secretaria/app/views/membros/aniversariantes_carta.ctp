@@ -41,7 +41,7 @@ if (count($membros)>0) {
 		$fpdf->Ln(4);
 		$fpdf->Ln(4);
 		$fpdf->SetFont('Arial','',14);
-		$fpdf->MultiCell(0,9,utf8_decode('        Prezad'.($membro['Membro']['sexo']=='M' ? 'o' : 'a').' irmã'.($membro['Membro']['sexo']=='M' ? 'o' : '').' '.$membro['Membro']['nome'].' é com muita alegria que venho através desta parabenizá-lo pelo seu aniversário que ocorrerá no dia '.substr($membro['Membro']['data_nascimento'],5,2).'/'.substr($membro['Membro']['data_nascimento'],5,2).'/'.date('Y').'.'));
+		$fpdf->MultiCell(0,9,utf8_decode('        Prezad'.($membro['Membro']['sexo']=='M' ? 'o' : 'a').' irmã'.($membro['Membro']['sexo']=='M' ? 'o' : '').' '.$membro['Membro']['nome'].' é com muita alegria que venho através desta parabenizá-lo pelo seu aniversário que ocorrerá no dia '.substr( $membro['Membro']["data_nascimento"], 8,2 ).'/'.substr( $membro['Membro']["data_nascimento"], 5,2 ).'/'.date('Y').'.'));
 		$fpdf->MultiCell(0,9,utf8_decode('        O nosso desejo é que o Senhor alargue os seus dias na face da terra e que todos os seus sonhos sejam realizados estando eles debaixo da vontade de Deus.'));
 		$fpdf->MultiCell(0,9,utf8_decode('        Que através de você toda sua família seja abençoada, guardada e guiada pelas mãos do nosso Deus.'));
 		$fpdf->MultiCell(0,9,utf8_decode('        Sem mais termino esta saudando-'.($membro['Membro']['sexo']=='M' ? 'o' : 'a').' com a seguinte leitura bíblica.'));

@@ -91,6 +91,8 @@ class MembrosController extends AppController {
 		$this->set('funcoes',$this->Funcao->find('list'));
 		$this->set('cidades',array());
 		$this->set('cidadesendereco',array());
+		$this->data['Membro']['situacao']=1;
+		$this->data['Membro']['foto']='';
 	}
 	
 	function edit($id = null) {
