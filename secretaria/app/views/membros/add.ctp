@@ -69,7 +69,7 @@ $(document).ready(function(){
 	<?php echo $form->input('funcao_id',array('label'=>'Função','empty'=>'.:: SELECIONE ::.')); ?>
 	<?php echo $form->input('data_batismo_aguas', array('size'=>'20','maxlength'=>'10')); ?>
 	<?php echo $form->input('data_batismo_espirito', array('size'=>'20','maxlength'=>'10')); ?>
-	<?php //echo $form->input('situacao'); ?>
+	<?php echo $form->input('situacao',array('type'=>'hidden')); ?>
 </fieldset>
 <? if (isset($this->data['Membro']['id'])){ ?>
 <fieldset>
