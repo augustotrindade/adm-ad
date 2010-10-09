@@ -15,9 +15,45 @@ if (count($membros)>0) {
 		}
 		
 		
-		$fpdf->Image('img/bg_cartao.jpg',10,$y+10,190,65);
+		//$fpdf->Image('img/bg_cartao.jpg',10,$y+10,190,65);
 		$fpdf->SetFont('avantg','',5);
 		
+		// bordas
+		$fpdf->SetLineWidth(0.1);
+		$fpdf->Rect(10,$y+10,190,65);
+		$fpdf->Rect(80,$y+15.5,20,20);
+		$fpdf->Rect(80,$y+37.5,21,8);
+		
+		$fpdf->Rect(14,$y+46,87,8);
+		
+		$fpdf->Rect(14,$y+54.5,28,8);
+		$fpdf->Rect(43,$y+54.5,29,8);
+		$fpdf->Rect(73,$y+54.5,28,8);
+		
+		$fpdf->Rect(14,$y+63,87,8);
+		
+		$fpdf->Rect(109,$y+31,70.5,8);
+		$fpdf->Rect(181,$y+31,15,8);
+		
+		$fpdf->Rect(109,$y+39.5,33,8);
+		$fpdf->Rect(143,$y+39.5,26,8);
+		$fpdf->Rect(170,$y+39.5,26,8);
+		
+		$fpdf->Rect(109,$y+48.5,42.5,8);
+		$fpdf->Rect(152,$y+48.5,44,8);
+		
+		$fpdf->Line(110.5,$y+62.5,149.5,$y+62.5);
+		$fpdf->Line(153.5,$y+62.5,192.5,$y+62.5);
+		
+		$fpdf->Line(105,$y+10,105,$y+75);
+		
+		$fpdf->SetLineWidth(0.2);
+		
+		$fpdf->SetFont('arial','B',11);
+		$fpdf->SetXY(133,$y+14.5);
+		$fpdf->Cell(0,6,utf8_decode('DADOS CADASTRAIS'));
+		
+		$fpdf->SetFont('avantg','',5);
 		$fpdf->SetXY(80,$y+36);
 		$fpdf->Cell(0,6,utf8_decode('EMISSÃO'));
 		$fpdf->SetXY(14,$y+45);

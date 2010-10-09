@@ -66,7 +66,7 @@ if (count($membros)>0) {
 	}
 } else {
 	$fpdf->SetFont('Arial','',15);
-	$fpdf->Cell('',6,utf8_decode('Não possui cartões à imprimir'),0,0,'C');
+	$fpdf->Cell('',6,utf8_decode('Não possui cartas à imprimir'),0,0,'C');
 }
 
 echo $fpdf->fpdfOutput('aniversarios_'.date('YmdHis').'.pdf','D');
