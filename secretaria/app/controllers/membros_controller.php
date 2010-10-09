@@ -249,21 +249,15 @@ class MembrosController extends AppController {
 	function inativar($id=null){
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for Membro', true));
-		}
-		if (empty($this->data)) {
+		} else {
 			$this->data = $this->Membro->read(null,$id);
-			
 			$this->data['Membro']['situacao'] = false;
-			
-			
 			if($this->Membro->save($this->data)){
 				$this->Session->setFlash(__('Alterado com sucesso!', true));
 			} else {
 				$this->Session->setFlash(__('Erro ao salvar!', true));
 			}
-			
 		}
-		
 		$this->redirect(array('action'=>'index'));
 	}
 	

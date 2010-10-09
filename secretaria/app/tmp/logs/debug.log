@@ -841,3 +841,4 @@
 2010-06-29 22:02:07 Notice: Notice (8): Undefined index:  Consagracao in [APP/controllers/ocorrencias_controller.php, line 33]
 2010-06-29 22:04:04 Notice: Notice (8): Undefined index:  Funcao in [APP/views/ocorrencias/index.ctp, line 24]
 2010-06-29 22:04:42 Notice: Notice (8): Undefined index:  pequea_descricao in [APP/views/ocorrencias/index.ctp, line 24]
+2010-10-05 20:48:48 Notice: Notice (8): Undefined property: fpdfHelper::$lmargin in [APP/views/membros/imprime.ctp, line 64]
