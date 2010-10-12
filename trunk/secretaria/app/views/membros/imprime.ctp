@@ -15,11 +15,11 @@ if (count($membros)>0) {
 		}
 		
 		
-		//$fpdf->Image('img/bg_cartao.jpg',10,$y+10,190,65);
+		$fpdf->Image('img/bg_cartao.jpg',10,$y+10,190,65);
 		$fpdf->SetFont('avantg','',5);
 		
 		// bordas
-		$fpdf->SetLineWidth(0.1);
+		/*$fpdf->SetLineWidth(0.1);
 		$fpdf->Rect(10,$y+10,190,65);
 		$fpdf->Rect(80,$y+15.5,20,20);
 		$fpdf->Rect(80,$y+37.5,21,8);
@@ -51,7 +51,7 @@ if (count($membros)>0) {
 		
 		$fpdf->SetFont('arial','B',11);
 		$fpdf->SetXY(133,$y+14.5);
-		$fpdf->Cell(0,6,utf8_decode('DADOS CADASTRAIS'));
+		$fpdf->Cell(0,6,utf8_decode('DADOS CADASTRAIS'));*/
 		
 		$fpdf->SetFont('avantg','',5);
 		$fpdf->SetXY(80,$y+36);
