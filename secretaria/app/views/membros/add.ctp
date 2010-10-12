@@ -26,6 +26,7 @@ $(document).ready(function(){
 <? echo $form->input('id'); ?>
 <?php echo $form->input('foto', array('type'=>'hidden')); ?>
 <?php echo $form->input('foto_completo', array('type'=>'hidden')); ?>
+
 <?php echo $html->image('/fotos_cartao/'.($this->data['Membro']['foto'] ? $this->data['Membro']['foto'] : 'sem_foto.gif'),array('width'=>'100px','border'=>'1px','id'=>'imgFoto')); ?>
 <?php echo $html->link('FOTO',array('controller'=>'foto','action'=>'index','id'=>$this->data['Membro']['id']),array('onclick'=>"window.open(this.href,'page','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=800,height=600');return false;")); ?>
 <fieldset>
