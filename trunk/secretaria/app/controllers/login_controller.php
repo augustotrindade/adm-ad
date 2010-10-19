@@ -4,7 +4,7 @@ class LoginController extends AppController {
 	var $uses = array('Usuario');
 	var $layout = 'login';
 	var $name = 'Login';
-	var $helpers = array('Html', 'Form');
+	var $helpers = array('Html', 'Form','Session');
 
 	function index(){
 
