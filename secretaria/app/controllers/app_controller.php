@@ -1,7 +1,7 @@
 <?php
 class AppController extends Controller {
 
-	var $helpers = array('Javascript','Html');
+	var $helpers = array('Javascript','Html','Session');
 	var $paginate = array('limit' => 50);
 	
 	function checkAdminSession() {
