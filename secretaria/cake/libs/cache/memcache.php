@@ -1,35 +1,34 @@
 <?php
-/* SVN FILE: $Id$ */
 /**
  * Memcache storage engine for cache
  *
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2010, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.cache
  * @since         CakePHP(tm) v 1.2.0.4933
- * @version       $Revision$
- * @modifiedby    $LastChangedBy$
- * @lastmodified  $Date$
- * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+
 /**
- * Memcache storage engine for cache
+ * Memcache storage engine for cache.  Memcache has some limitations in the amount of 
+ * control you have over expire times far in the future.  See MemcacheEngine::write() for
+ * more information.
  *
  * @package       cake
  * @subpackage    cake.cake.libs.cache
  */
 class MemcacheEngine extends CacheEngine {
+
 /**
  * Memcache wrapper.
  *
@@ -37,6 +36,7 @@ class MemcacheEngine extends CacheEngine {
  * @access private
  */
 	var $__Memcache = null;
+
 /**
  * Settings
  *
@@ -48,6 +48,7 @@ class MemcacheEngine extends CacheEngine {
  * @access public
  */
 	var $settings = array();
+
 /**
  * Initialize the Cache Engine
  *
@@ -94,20 +95,24 @@ class MemcacheEngine extends CacheEngine {
 		}
 		return true;
 	}
+
 /**
- * Write data for key into cache
+ * Write data for key into cache.  When using memcache as your cache engine
+ * remember that the Memcache pecl extension does not support cache expiry times greater 
+ * than 30 days in the future. If you wish to create cache entries that do not expire, set the duration
+ * to `0` in your cache configuration.
  *
  * @param string $key Identifier for the data
  * @param mixed $value Data to be cached
  * @param integer $duration How long to cache the data, in seconds
  * @return boolean True if the data was succesfully cached, false on failure
+ * @see http://php.net/manual/en/memcache.set.php
  * @access public
  */
 	function write($key, &$value, $duration) {
-		$expires = time() + $duration;
-		$this->__Memcache->set($key . '_expires', $expires, $this->settings['compress'], $expires);
-		return $this->__Memcache->set($key, $value, $this->settings['compress'], $expires);
+		return $this->__Memcache->set($key, $value, $this->settings['compress'], $duration);
 	}
+
 /**
  * Read a key from the cache
  *
@@ -116,13 +121,41 @@ class MemcacheEngine extends CacheEngine {
  * @access public
  */
 	function read($key) {
-		$time = time();
-		$cachetime = intval($this->__Memcache->get($key . '_expires'));
-		if ($cachetime < $time || ($time + $this->settings['duration']) < $cachetime) {
-			return false;
-		}
 		return $this->__Memcache->get($key);
 	}
+
+/**
+ * Increments the value of an integer cached key
+ *
+ * @param string $key Identifier for the data
+ * @param integer $offset How much to increment
+ * @param integer $duration How long to cache the data, in seconds
+ * @return New incremented value, false otherwise
+ * @access public
+ */
+	function increment($key, $offset = 1) {
+		if ($this->settings['compress']) {
+			trigger_error(sprintf(__('Method increment() not implemented for compressed cache in %s', true), get_class($this)), E_USER_ERROR);
+		}
+		return $this->__Memcache->increment($key, $offset);
+	}
+
+/**
+ * Decrements the value of an integer cached key
+ *
+ * @param string $key Identifier for the data
+ * @param integer $offset How much to substract
+ * @param integer $duration How long to cache the data, in seconds
+ * @return New decremented value, false otherwise
+ * @access public
+ */
+	function decrement($key, $offset = 1) {
+		if ($this->settings['compress']) {
+			trigger_error(sprintf(__('Method decrement() not implemented for compressed cache in %s', true), get_class($this)), E_USER_ERROR);
+		}
+		return $this->__Memcache->decrement($key, $offset);
+	}
+
 /**
  * Delete a key from the cache
  *
@@ -133,6 +166,7 @@ class MemcacheEngine extends CacheEngine {
 	function delete($key) {
 		return $this->__Memcache->delete($key);
 	}
+
 /**
  * Delete all keys from the cache
  *
@@ -142,6 +176,7 @@ class MemcacheEngine extends CacheEngine {
 	function clear() {
 		return $this->__Memcache->flush();
 	}
+
 /**
  * Connects to a server in connection pool
  *
@@ -160,4 +195,3 @@ class MemcacheEngine extends CacheEngine {
 		return true;
 	}
 }
-?>

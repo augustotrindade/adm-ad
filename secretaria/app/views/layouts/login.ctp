@@ -68,6 +68,6 @@
 <div id="footer">
 
 </div>
-	<?php echo $cakeDebug; ?>
+
 </body>
 </html>

@@ -25,19 +25,37 @@ define('ERRO_CORREIOS_EXCESSO_PESO', -1001);
 define('ERRO_CORREIOS_FALHA_COMUNICACAO', -1002);
 define('ERRO_CORREIOS_CONTEUDO_INVALIDO', -1003);
 
-App::import('Behavior', 'CakePtbr.Validacao');
 App::import('Core', array('HttpSocket', 'Xml'));
 
+/**
+ * CorreiosBehavior
+ *
+ * @link http://wiki.github.com/jrbasso/cake_ptbr/behavior-correios
+ */
 class CorreiosBehavior extends ModelBehavior {
 
-	function valorFrete($servico, $cepOrigem, $cepDestino, $peso, $maoPropria = false, $valorDeclarado = 0.0, $avisoRecebimento = false) {
+/**
+ * Cálculo do valor do frete
+ *
+ * @param object $model
+ * @param integer $servico Código do serviço, ver as defines CORREIOS_*
+ * @param string $cepOrigem CEP de origem no formato XXXXX-XXX
+ * @param string $cepDestino CEP de destino no formato XXXXX-XXX
+ * @param float $peso Peso do pacote, em quilos
+ * @param boolean $maoPropria Usar recurso de mão própria?
+ * @param float $valorDeclarado Valor declarado do pacote
+ * @param boolean $avisoRecebimento Aviso de recebimento?
+ * @return mixed Array com os dados do frete ou integer com erro. Ver defines ERRO_CORREIOS_* para erros.
+ * @access public
+ */
+	function valorFrete(&$model, $servico, $cepOrigem, $cepDestino, $peso, $maoPropria = false, $valorDeclarado = 0.0, $avisoRecebimento = false) {
 		// Validação dos parâmetros
 		$tipos = array(CORREIOS_SEDEX, CORREIOS_SEDEX_A_COBRAR, CORREIOS_SEDEX_10, CORREIOS_SEDEX_HOJE, CORREIOS_ENCOMENDA_NORMAL);
 		if (!in_array($servico, $tipos)) {
 			return ERRO_CORREIOS_PARAMETROS_INVALIDOS;
 		}
-		$Validacao = new ValidacaoBehavior();
-		if (!$Validacao->_cep($cepOrigem, '-') || !$Validacao->_cep($cepDestino, '-')) {
+		
+		if (!$this->_validaCep($cepOrigem) || !$this->_validaCep($cepDestino)) {
 			return ERRO_CORREIOS_PARAMETROS_INVALIDOS;
 		}
 		if (!is_numeric($peso) || !is_numeric($valorDeclarado)) {
@@ -64,27 +82,19 @@ class CorreiosBehavior extends ModelBehavior {
 			$avisoRecebimento = 'N';
 		}
 
-		// Requisição
-		$HttpSocket = new HttpSocket();
-		$uri = array(
-			'scheme' => 'http',
-			'host' => 'www.correios.com.br',
-			'port' => 80,
-			'path' => '/encomendas/precos/calculo.cfm',
-			'query' => array(
-				'resposta' => 'xml',
-				'servico' => $servico,
-				'cepOrigem' => $cepOrigem,
-				'cepDestino' => $cepDestino,
-				'peso' => $peso,
-				'MaoPropria' => $maoPropria,
-				'valorDeclarado' => $valorDeclarado,
-				'avisoRecebimento' => $avisoRecebimento
-			)
+		$query = array(
+			'resposta' => 'xml',
+			'servico' => $servico,
+			'cepOrigem' => $cepOrigem,
+			'cepDestino' => $cepDestino,
+			'peso' => $peso,
+			'MaoPropria' => $maoPropria,
+			'valorDeclarado' => $valorDeclarado,
+			'avisoRecebimento' => $avisoRecebimento
 		);
-		$retornoCorreios = trim($HttpSocket->get($uri));
-		if ($HttpSocket->response['status']['code'] != 200) {
-			return ERRO_CORREIOS_FALHA_COMUNICACAO;
+		$retornoCorreios = $this->_requisitaUrl('/encomendas/precos/calculo.cfm', 'get', $query);
+		if (is_integer($retornoCorreios)) {
+			return $retornoCorreios;
 		}
 		$Xml = new Xml($retornoCorreios);
 		$infoCorreios = $Xml->toArray();
@@ -104,20 +114,19 @@ class CorreiosBehavior extends ModelBehavior {
 		);
 	}
 
-	function endereco($cep) {
-		$Validacao = new ValidacaoBehavior();
-		if (!$Validacao->_cep($cep, '-')) {
+/**
+ * Pegar o endereço de um CEP específico
+ *
+ * @param object $model
+ * @param string $cep CEP no format XXXXX-XXX
+ * @return mixed Array com os dados do endereço ou interger para erro. Ver defines ERRO_CORREIOS_* para os erros.
+ * @access public
+ */
+	function endereco(&$model, $cep) {
+		if (!$this->_validaCep($cep, '-')) {
 			return ERRO_CORREIOS_PARAMETROS_INVALIDOS;
 		}
 
-		// Requisição
-		$HttpSocket = new HttpSocket();
-		$uri = array(
-			'scheme' => 'http',
-			'host' => 'www.correios.com.br',
-			'port' => 80,
-			'path' => '/encomendas/prazo/prazo.cfm',
-		);
 		$data = array(
 			'resposta' => 'paginaCorreios',
 			'servico' => CORREIOS_SEDEX,
@@ -135,9 +144,9 @@ class CorreiosBehavior extends ModelBehavior {
 			'embalagem' => 116600055,
 			'valorD' => ''
 		);
-		$retornoCorreios = $HttpSocket->post($uri, $data);
-		if ($HttpSocket->response['status']['code'] != 200) {
-			return ERRO_CORREIOS_FALHA_COMUNICACAO;
+		$retornoCorreios = $this->_requisitaUrl('/encomendas/prazo/prazo.cfm', 'post', $data);
+		if (is_integer($retornoCorreios)) {
+			return $retornoCorreios;
 		}
 
 		// Convertendo para o encoding da aplicação. Isto só funciona se a extensão multibyte estiver ativa
@@ -146,7 +155,7 @@ class CorreiosBehavior extends ModelBehavior {
 			$retornoCorreios = mb_convert_encoding($retornoCorreios, $encoding, 'ISO-8859-1');
 		}
 		// Checar se o conteúdo está lá e reduzir o escopo de busca dos valores
-		if (!preg_match('/\<b\>CEP:\<\/b\>(.*)\<b\>Prazo de Entrega/', $retornoCorreios, $matches)) {
+		if (!preg_match('/\<b\>CEP:\<\/b\>(.*)\<b\>Prazo de Entrega/sm', $retornoCorreios, $matches)) {
 			return ERRO_CORREIOS_CONTEUDO_INVALIDO;
 		}
 		$escopoReduzido = $matches[1];
@@ -163,6 +172,44 @@ class CorreiosBehavior extends ModelBehavior {
 		return compact('logradouro', 'bairro', 'cidade', 'uf');
 	}
 
-}
+/**
+ * Verificar se o CEP digitado está correto
+ *
+ * @param string $cep CEP
+ * @return boolean CEP Correto
+ * @access protected
+ */
+	function _validaCep($cep) {
+		return (bool)preg_match('/^\d{5}\-?\d{3}$/', $cep);
+	}
 
-?>
+/**
+ * Requisita dados dos Correios
+ *
+ * @param string $url Caminho relativo da página nos Correios
+ * @param string $method Método de requisição (POST/GET)
+ * @param array $query Dados para enviar na página
+ * @return string Página solicitada
+ * @access protected
+ */
+	function _requisitaUrl($url, $method, $query) {
+		$HttpSocket = new HttpSocket();
+		$uri = array(
+			'scheme' => 'http',
+			'host' => 'www.correios.com.br',
+			'port' => 80,
+			'path' => $url
+		);
+		if ($method === 'get') {
+			$uri['query'] = $query;
+			$retornoCorreios = trim($HttpSocket->get($uri));
+		} else {
+			$retornoCorreios = $HttpSocket->post($uri, $query);
+		}
+		if ($HttpSocket->response['status']['code'] != 200) {
+			return ERRO_CORREIOS_FALHA_COMUNICACAO;
+		}
+		return $retornoCorreios;
+	}
+
+}
