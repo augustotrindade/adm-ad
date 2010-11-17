@@ -7,7 +7,6 @@
  *
  * @filesource
  * @author        Juan Basso <jrbasso@gmail.com>
- * @author        Daniel Pakuschewski <contato@danielpk.com.br>
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 
@@ -42,64 +41,9 @@ class AjusteFloatBehavior extends ModelBehavior {
 			}
 		}
 	}
-	
-/**
- * Before Find
- * Transforma o valor de BRL para o formato SQL antes de executar uma query
- * com conditions.
- * 
- * @param object $model
- * @return boolean
- * @access public
- */	
-	function beforeValidate(&$model) {
-		foreach($model->data[$model->alias] as $field => $value) {
-			if ($model->hasField($field) && $model->_schema[$field]['type'] == 'float') {
-				if (!is_string($value) || preg_match('/^[0-9]+(\.[0-9]+)?$/', $value)) {
-					continue;
-				}
-				$model->data[$model->alias][$field] = str_replace(array('.', ','), array('', '.'), $value);
-			}
-		}
-		return true;
-	}
-	
-/**
- * Before Find
- * Transforma o valor de BRL para o formato SQL antes de executar uma query
- * com conditions.
- * 
- * @param object $model
- * @return array
- * @access public
- */
-	function beforeFind(&$model, $query) {
-		if (is_array($query['conditions'])) {
-			foreach ($query['conditions'] as $field => $value) {
-				if (strpos($field, '.') === false) {
-					$field = $model->alias . '.' . $field;
-				}
-				list($modelName, $field) = explode('.', $field);
-				$useModel = ($modelName != $model->alias) ? $model->{$modelName} : $model;
-				if ($useModel->hasField($field) && $useModel->_schema[$field]['type'] == 'float') {
-					if (!is_string($value) || preg_match('/^[0-9]+(\.[0-9]+)?$/', $value)) {
-						continue;
-					}
-					$value = str_replace(',', '.', str_replace('.', '', $value));
-					if (isset($query['conditions'][$field])) {
-						$query['conditions'][$field] = $value;
-					}
-					if (isset($query['conditions'][$useModel->alias . '.' . $field])) {
-						$query['conditions'][$useModel->alias . '.' . $field] = $value;
-					}
-				}
-			}
-		}
-		return $query;
-	}
 
 /**
- * Before Save
+ * Before Validate
  *
  * @param object $model
  * @return void
@@ -109,17 +53,12 @@ class AjusteFloatBehavior extends ModelBehavior {
 		$data =& $model->data[$model->alias];
 		foreach ($data as $name => $value) {
 			if (in_array($name, $this->floatFields[$model->alias])) {
-				if (!is_string($value) || preg_match('/^[0-9]+(\.[0-9]+)?$/', $value)) {
-					continue;
-				}
 				$data[$name] = str_replace(array('.', ','), array('', '.'), $value);
 			}
 		}
 
 		return true;
 	}
-	
-
 
 /**
  * After Find
@@ -129,7 +68,6 @@ class AjusteFloatBehavior extends ModelBehavior {
  * @param boolean $primary
  * @return void
  * @access public
- * @deprecated Isto deve ser feito na view
  */
 	function afterFind(&$model, $results, $primary) {
 		foreach ($results as $key => $r) {

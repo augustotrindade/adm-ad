@@ -24,8 +24,8 @@ $(document).ready(function(){
 <div class="membros form">
 <?php echo $form->create('Membro',array('action'=>'salvar','enctype'=>'multipart/form-data'));?>
 <? echo $form->input('id'); ?>
-<?php echo $form->input('foto', array('type'=>'hidden')); ?>
-<?php echo $form->input('foto_completo', array('type'=>'hidden')); ?>
+<?php echo $form->input('foto', array('type'=>'hidden','id'=>'foto')); ?>
+<?php echo $form->input('upload', array('type'=>'hidden','id'=>'upload','value'=>'false')); ?>
 <div onclick="window.open('<?php echo $html->url(array('controller'=>'foto','action'=>'index','id'=>$this->data['Membro']['id'])); ?>','page','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=800,height=600');return false;">
 <?php echo $html->image('/fotos_cartao/'.($this->data['Membro']['foto'] ? $this->data['Membro']['foto'] : 'sem_foto.gif'),array('width'=>'100px','border'=>'1px','id'=>'imgFoto')); ?>
 </div>
@@ -40,14 +40,14 @@ $(document).ready(function(){
 	<?php echo $form->input('estado_civil',array('type'=>'select','empty'=>'.:: SELECIONE ::.','options'=>array('S'=>'Solteiro','C'=>'Casado','D'=>'Divorciado','V'=>'Viúvo'))); ?>
 	<?php echo $form->input('nome_conjuge', array('size'=>'40','maxlength'=>'255')); ?>
 	<?php echo $form->input('nome_pai', array('size'=>'40','maxlength'=>'255')); ?>
-	<?php echo $form->input('nome_mae', array('size'=>'40','maxlength'=>'255')); ?>
+	<?php echo $form->input('nome_mae', array('size'=>'40','maxlength'=>'255','label'=>'Nome Mãe')); ?>
 	<?php echo $form->input('num_filhos', array('size'=>'5','maxlength'=>'2','label'=>'Numero de Filhos')); ?>
 	<?php echo $form->input('nome_filhos', array('label'=>'Nome dos Filhos','rows'=>'3','cols'=>'40')); ?>
 </fieldset>
 <fieldset>
 	<legend>Endereço Residencial</legend>
 	<?php echo $form->input('cep', array('size'=>'15','maxlength'=>'10','class'=>'cep')); ?>
-	<?php echo $form->input('endereco', array('size'=>'60','maxlength'=>'255')); ?>
+	<?php echo $form->input('endereco', array('size'=>'60','maxlength'=>'255','label'=>'Endereço')); ?>
 	<?php echo $form->input('quadra', array('size'=>'20','maxlength'=>'50')); ?>
 	<?php echo $form->input('lote', array('size'=>'20','maxlength'=>'50')); ?>
 	<?php echo $form->input('uf_endereco',array('type'=>'select','empty'=>'.:: SELECIONE ::.','options'=>$estados,'label'=>'UF','class'=>'uf')); ?>
@@ -70,8 +70,8 @@ $(document).ready(function(){
 	<legend>Igreja</legend>
 	<?php echo $form->input('congregacao_id',array('label'=>'Congregação','empty'=>'.:: SELECIONE ::.')); ?>
 	<?php echo $form->input('funcao_id',array('label'=>'Função','empty'=>'.:: SELECIONE ::.')); ?>
-	<?php echo $form->input('data_batismo_aguas', array('size'=>'20','maxlength'=>'10')); ?>
-	<?php echo $form->input('data_batismo_espirito', array('size'=>'20','maxlength'=>'10')); ?>
+	<?php echo $form->input('data_batismo_aguas', array('size'=>'20','maxlength'=>'10','label'=>'Data Batismo Águas')); ?>
+	<?php echo $form->input('data_batismo_espirito', array('size'=>'20','maxlength'=>'10','label'=>'Data Batismo Espírito')); ?>
 	<?php echo $form->input('situacao',array('type'=>'hidden')); ?>
 </fieldset>
 <? if (isset($this->data['Membro']['id'])){ ?>

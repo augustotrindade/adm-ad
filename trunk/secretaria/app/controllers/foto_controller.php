@@ -25,9 +25,10 @@ class FotoController extends AppController {
 	
 	function finalizar(){
 		$caminho = $this->JqImgcrop->cropImage(150, $this->data['x1'], $this->data['y1'], $this->data['x2'], $this->data['y2'], $this->data['w'], $this->data['h'], $this->data['imagePath'], $this->data['imagePath']) ;
-		$img = '../../'.end(explode('//',$caminho));
-		$this->set('caminho',$caminho);
+		$img = $_SERVER['HTTP_REFERER'].'/../../img/upload/'.basename($caminho);
+		$foto = '../../img/upload/'.basename($caminho);
 		$this->set('imagem',$img);
+		$this->set('foto',$foto);
 	}
 }
 ?>
