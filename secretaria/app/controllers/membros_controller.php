@@ -119,19 +119,10 @@ class MembrosController extends AppController {
 		if (!$id) {
 			if (!empty($this->data)) {
 				$this->Membro->create();
-//				if ($this->data['Membro']['filedata']['name']!='') {
-//					$destination = realpath($this->destino).'/';
-//					$nome = $this->nomeArquivo($this->Upload->ext($this->data['Membro']['filedata']['name']));
-//					$file = $this->data['Membro']['filedata'];
-//					$result = $this->Upload->upload($file, $destination, $nome, array('type' => 'resize', 'size'=>'800', 'output' => $this->Upload->ext($this->data['Membro']['filedata']['name'])));
-//					if (empty($this->Upload->errors)){
-//						$this->data['Membro']['foto'] = $this->Upload->result;
-//					}
-//				}
-				if ($this->data['Membro']['foto_completo']!='') {
-					$destination = realpath($this->destino).'/'.basename($this->data['Membro']['foto_completo']);
-					copy($this->data['Membro']['foto_completo'],$destination);
-					$this->data['Membro']['foto'] = basename($this->data['Membro']['foto_completo']);
+			if ($this->data['Membro']['upload']!='false') {
+					$destination = realpath($this->destino).'/'.basename($this->data['Membro']['foto']);
+					copy(realpath('./img/upload/').'/'.basename($this->data['Membro']['foto']),$destination);
+					$this->data['Membro']['foto'] = basename($this->data['Membro']['foto']);
 				}
 				if ($this->Membro->save($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));
@@ -150,21 +141,10 @@ class MembrosController extends AppController {
 			}
 		} else {
 			if (!empty($this->data)) {
-//				if ($this->data['Membro']['filedata']['name']!='') {
-//					$destination = realpath($this->destino).'/';
-//					$nome = $this->nomeArquivo($this->Upload->ext($this->data['Membro']['filedata']['name']));
-//					$file = $this->data['Membro']['filedata'];
-//					$result = $this->Upload->upload($file, $destination, $nome, array('type' => 'resize', 'size'=>'800', 'output' => $this->Upload->ext($this->data['Membro']['filedata']['name'])));
-//					if (empty($this->Upload->errors)){
-//						$this->data['Membro']['foto'] = $this->Upload->result;
-//					} else {
-//						die('morreu');
-//					}
-//				}
-				if ($this->data['Membro']['foto_completo']!='') {
-					$destination = realpath($this->destino).'/'.basename($this->data['Membro']['foto_completo']);
-					copy($this->data['Membro']['foto_completo'],$destination);
-					$this->data['Membro']['foto'] = basename($this->data['Membro']['foto_completo']);
+				if ($this->data['Membro']['upload']!='false') {
+					$destination = realpath($this->destino).'/'.basename($this->data['Membro']['foto']);
+					copy(realpath('./img/upload/').'/'.basename($this->data['Membro']['foto']),$destination);
+					$this->data['Membro']['foto'] = basename($this->data['Membro']['foto']);
 				}
 				if ($this->Membro->save($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));

@@ -5,7 +5,10 @@
 echo $form->create('',array('controller'=>'login','action'=>'altera_senha')); 
 $logado = $session->read('logado');
 ?>
-		<?= $logado['nome']?>
+		<div class="input">
+			<label>Usuário</label>
+			<b><?= $logado['nome']?></b>
+		</div>
 		<?= $form->input('senha_antiga', array('type'=>'password', 'label'=>'Senha Atual'))?>
 		<?= $form->input('senha_nova1', array('type'=>'password', 'label'=>'Nova Senha','maxlength'=>6))?>
 		<?= $form->input('senha_nova2', array('type'=>'password', 'label'=>'Redigite a senha','maxlength'=>6))?>
