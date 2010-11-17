@@ -1,0 +1,1 @@
+..\..\..\MySQL\bin\mysql.exe -u root --password=vacalouca < secretaria.sql 
