@@ -6,6 +6,7 @@
 		echo $html->meta('icon');
 
 		echo $html->css('default');
+		
 		echo $html->css('themes_dock/default');
 		echo $html->css('themes_dock/alphacube');
 		echo $html->css('themes_prototype/default');
@@ -41,27 +42,25 @@
 		// ...and apply...
 		$('#menu').jqDock(dockOptions);
 	});
-	function win(janela,url){
-		
-		var win = new Window({className: "mac_os_x", blurClassName: "blur_os_x", title: "Sample"+janela, width:700, height:400, top: 10, left:10,destroyOnClose: false, hideEffect:Element.hide,showEffect:Element.show, maximizable: false}); 
-		win.setContent('win'+janela, true, true);
-		win.setDestroyOnClose(); 
-		win.showCenter();
-		win.setConstraint(true, {left:10, right:20})
-		win.toFront
+	function win(janela,titulo){
+		var wind = new Window({className: "mac_os_x", blurClassName: "blur_os_x", title: titulo, width:700, height:400, top: 10, left:10,destroyOnClose: true, hideEffect:Element.hide, showEffect:Element.show, maximizable: false, resizable: false}); 
+		wind.setContent('win'+janela, true, true);
+		wind.setDestroyOnClose(); 
+		wind.showCenter();
+		wind.setConstraint(true, {left:10, right:20})
+		wind.setStatusBar('ADM-AD - Sistema de Gestão de Igreja');
 		myObserver = { 
 			onDestroy: function(eventName, win) { 
-				if (win == contentWin) { 
+				if (win == wind) { 
+					$('win'+janela).hide();
 					$('container').appendChild($('win'+janela)); 
-					contentWin = null; 
+					
+					wind = null; 
 					Windows.removeObserver(this); 
-				} debug(eventName + " on " + win.getId()) 
+				} 
 			} 
 		} 
 		Windows.addObserver(myObserver);
-		
-		
-		
 	}
 	</script>
 </head>

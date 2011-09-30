@@ -65,3 +65,46 @@ div.jqDockLabel {
 	width:100%;
 	height:100%;
 }
+
+/* organizando a janela */
+div .menulateral {
+	background-color:blue;
+	float:left;
+	width:200px;
+	height:50px;
+	height:100%;
+}
+div .conteudo {
+	background-color:red;
+	float:right;
+	width:500px;
+	height:100%;
+}
+/* menu lateral */
+
+.menu_list {
+	width: 150px;
+}
+.menu_head {
+	padding: 5px 10px;
+	cursor: pointer;
+	position: relative;
+	margin:1px;
+       font-weight:bold;
+       background: #eef4d3 url(left.png) center right no-repeat;
+}
+.menu_body {
+	display:none;
+}
+.menu_body a {
+  display:block;
+  color:#006699;
+  background-color:#EFEFEF;
+  padding-left:10px;
+  font-weight:bold;
+  text-decoration:none;
+}
+.menu_body a:hover {
+  color: #000000;
+  text-decoration:underline;
+}
