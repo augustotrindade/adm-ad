@@ -81,9 +81,45 @@ class PrototypewindowHelper extends Helper {
 				($href != '' ? $href : "").'#',
 				array('onclick'=>($onclick !='' ? $onclick.';' : "")." window_".$window_id."();"));
 		}
-		
-		
 		return $this->output($link);
+	}
+	
+	function jscodeblock_to_prototype_window( $window_id, $options = array() , $html_options = array() ){
+		$href = '';
+		$onclick = '';
+		if(array_key_exists('href',$html_options)){
+			$href = $html_options['href'];
+			unset($html_options['href']);
+		} 
+		if(array_key_exists('onclick',$html_options)){
+			$onclick = $html_options['onclick'];
+			unset($html_options['onclick']);
+		}
+		$js_code = "
+			var win_$window_id;
+			function window_".$window_id."(){
+				if(win_".$window_id."!=null){
+					Dialog.alert(\"Esta janela já esta aberta!\",{width:200, height:130}); 
+				} else {
+					win_".$window_id." = new Window( '".$window_id."', ".$this->params_for_javascript($options)." );
+					win_".$window_id.".show();
+					win_".$window_id.".setDestroyOnClose();
+					win_".$window_id.".setStatusBar('ADM-AD - O sistema da sua igreja');
+					win_".$window_id.".showCenter();
+					win_".$window_id.".setConstraint(true)
+					myObserver = {
+						onDestroy: function(eventName, win) {
+							if (win == win_".$window_id.") {
+								win_".$window_id." = null;
+								Windows.removeObserver(this);
+							}
+						}
+					}
+				Windows.addObserver(myObserver);
+					
+				}
+			}";
+		echo $this->Javascript->codeBlock($js_code);
 	}
 }
 ?>
