@@ -4,7 +4,7 @@ class PrincipalController extends AppController {
 	var $name = 'Principal';
 	var $uses = array();
 	var $layout = 'desktop';
-	var $helpers = array('Html','Form','Javascript','Ajax','Jax');
+	var $helpers = array('Html','Form','Javascript','Ajax','Js' => array('Jquery'));
 	var $components = array('RequestHandler');
 	
 	function index() {
