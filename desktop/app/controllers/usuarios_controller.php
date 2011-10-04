@@ -1,28 +1,22 @@
 <?php
 class UsuariosController extends AppController {
 	var $name = 'Usuarios';
-	var $components = array('Auth','Cookie');
+	var $components = array('Auth','Cookie','Session');
+	var $helper = array('Session');
 	
-	function beforeFilter() {
-		$this->Auth->userModel = 'Usuario';
-		$this->Auth->fields = array(
-			'username' => 'login', 
-			'password' => 'senha'
-		);
-	}
+	
 	
 	function login(){
+		$this->layout = 'login';
 		if ($this->Auth->user()) {
 			if (!empty($this->data)) {
 				$cookie = array();
 				$cookie['username'] = $this->data['Usuario']['login'];
 				$cookie['password'] = $this->data['Usuario']['senha'];
 				$this->Cookie->write('Auth.User', $cookie, true, '+2 weeks');
-				//unset($this->data['Usuario']['remember_me']);
+				unset($this->data['Usuario']['remember_me']);
 			}
 			$this->redirect($this->Auth->redirect());
-		} else {
-			echo "nada";
 		}
 		if (empty($this->data)) {
 			$cookie = $this->Cookie->read('Auth.User');
@@ -37,7 +31,7 @@ class UsuariosController extends AppController {
 	}
 	
 	function logout(){
-		//$this->redirect($this->Auth->logout());
+		$this->redirect($this->Auth->logout());
 	}
 	
 	function registrar(){

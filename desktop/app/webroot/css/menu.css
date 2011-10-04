@@ -1,0 +1,85 @@
+.menu4 {
+text-align:left; font-family: verdana, sans-serif; position:relative; font-size:0.85em; background:transparent; width:600px; height:30px; margin:0 auto;
+}
+.menu4 ul {
+padding:0; margin:0; list-style-type: none;
+}
+.menu4 ul li {
+float:left; position:relative;
+}
+.menu4 ul li.home {background:transparent url(../img/menu/home_menu.png) 9px 6px no-repeat;}
+.menu4 ul li.logout {background:transparent url(../img/menu/logout_menu.png) 9px 6px no-repeat;}
+.menu4 ul li.tesouraria {background:transparent url(../img/menu/tesouraria_menu.png) 9px 6px no-repeat;}
+
+.menu4 ul li.printer {background:transparent url(../img/menu/printer.png) 9px 6px no-repeat;}
+.menu4 ul li.user {background:transparent url(../img/menu/user.gif) 9px 6px no-repeat;}
+
+.menu4 ul li.articles {background:transparent url(../img/menu/articles_menu.gif) 9px 6px no-repeat;}
+.menu4 ul li.user {background:transparent url(../img/menu/user.gif) 9px 6px no-repeat;}
+.menu4 ul li.groups {background:transparent url(../img/menu/users_options_menu.gif) 9px 6px no-repeat;}
+.menu4 ul li.settings {background:transparent url(../img/menu/site_settings_menu.gif) 9px 6px no-repeat;}
+.menu4 ul li.add_article {background:transparent url(../img/menu/articles_add.gif) 9px 6px no-repeat;}
+.menu4 ul li.categories {background:transparent url(../img/menu/edit_categories.gif) 9px 6px no-repeat;}
+.menu4 ul li.add_user {background:transparent url(../img/menu/user_add.gif) 9px 6px no-repeat;}
+.menu4 ul li.delete {background:transparent url(../img/menu/delete.gif) 9px 6px no-repeat;}
+.menu4 ul li.show {background:transparent url(../img/menu/articles_menu.gif) 9px 6px no-repeat;}
+.menu4 ul li.last {background:transparent url(../img/menu/articles_menu.gif) 9px 6px no-repeat;}
+.menu4 ul li.first {background:transparent url(../img/menu/articles_menu.gif) 9px 6px no-repeat;}
+.menu4 ul li.all {background:transparent url(../img/menu/articles_menu.gif) 9px 6px no-repeat;}
+.menu4 ul li.none {background:transparent url(../img/menu/articles_menu.gif) 9px 6px no-repeat;}
+.menu4 ul li.subsubl {background-image:url(../img/menu/next.gif);background-repeat: no-repeat;background-position: top right;}
+
+.menu4 ul li a, .menu4 ul li a:visited {
+display:block; text-decoration:none; height:30px; color:#000; padding-left:30px; line-height:29px;text-align:left;
+}
+* html .menu4 ul li a, .menu4 ul li a:visited {
+width:100px; w\idth:70px;
+}
+
+.menu4 ul li ul {
+visibility:hidden; position:absolute; top:0; left:0; height:0; overflow:hidden;
+}
+
+/* fist line style for IE7 and non-IE browsers and the second line for IE5.5 and IE6 */
+.menu4 ul li:hover a,
+.menu4 ul li a:hover {
+color:#c00; text-decoration:none; border:0;
+}
+.menu4 ul li:hover ul,
+.menu4 ul li a:hover ul {
+visibility:visible; width:170px; height:auto; position:absolute; top:30px; left:-1px; background:#fff; border:1px solid #909; overflow:visible;
+}
+.menu4 ul li:hover ul li a,
+.menu4 ul li a:hover ul li a {
+display:block; background:transparent; text-decoration:none; color:#c00; height:auto; line-height:1.5em; padding:5px 10px 5px 35px; width:170px; w\idth:125px;
+}
+.menu4 ul li:hover ul li a.drop,
+.menu4 ul li a:hover ul li a.drop {
+display:block; color:#000; height:auto; line-height:1.5em; padding:5px 10px 5px 35px; width:170px; w\idth:125px;
+}
+.menu4 ul li:hover ul li ul,
+.menu4 ul li a:hover ul li a ul {
+visibility:hidden; position:absolute; top:0; left:0; height:0; overflow:hidden;
+}
+.menu4 ul li:hover ul li a:hover,
+.menu4 ul li a:hover ul li a:hover {
+color:#00f; text-decoration:underline;
+}
+.menu4 ul li:hover ul li:hover ul,
+.menu4 ul li a:hover ul li a:hover ul {
+visibility:visible; position:absolute; top:0; color:#000; left:166px; height:auto; border:1px solid #909;
+}
+.menu4 ul li:hover ul li:hover ul.left,
+.menu4 ul li a:hover ul li a:hover ul.left {
+left:-166px;
+}
+.menu4 ul li:hover ul li:hover ul li a,
+.menu4 ul li a:hover ul li a:hover ul li a {
+display:block; color:#00f; height:auto; line-height:1.5em; padding:5px 10px 4px 35px; width:170px; w\idth:140px;
+}
+* html .menu4 ul li a:hover ul li a:hover ul li a {padding:4px 10px 4px 35px;}
+
+.menu4 ul li:hover ul li:hover ul li:hover a,
+.menu4 ul li a:hover ul li a:hover ul li a:hover {
+color:#000; text-decoration:underline;
+}
