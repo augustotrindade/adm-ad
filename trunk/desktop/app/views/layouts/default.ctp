@@ -74,7 +74,6 @@
 		echo $content_for_layout;
 	?>
 	</div> <!-- end #content -->
-	<div id="sidebar"></div> <!-- end #sidebar -->
 	<div id="footer"></div> <!-- end #footer -->
 	<div id="debug">
 	<?php
