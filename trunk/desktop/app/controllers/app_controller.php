@@ -4,6 +4,7 @@ class AppController extends Controller {
 	var $components = array('Auth','Cookie');
 
 	function beforeFilter() {
+		
 		$this->Auth->userModel = 'Usuario';
 		$this->Auth->fields = array(
 			'username' => 'login', 

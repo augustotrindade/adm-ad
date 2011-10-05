@@ -19,7 +19,16 @@
 ?>
 
 <div id="wrapper">
-	<div id="header"></div> <!-- end #header -->
+	<div id="header">
+		<div id="logado">
+			<table border="0">
+				<tr>
+					<td width="60px"><b>Login:</b></td>
+					<td><?= $this->Session->read('Auth.Usuario.login')?></td>
+				</tr>
+			</table>
+		</div>
+	</div> <!-- end #header -->
 	<div id="nav">
 	
 		<div class="menu4">
@@ -62,6 +71,7 @@
 					<ul>
 						<li class="all"><a href="#">Cidades</a></li>
 						<li class="all"><a href="#">Profiss&otilde;es</a></li>
+						<li class="all"><? echo $html->link('Congregações',array('controller'=>'congregacoes','action'=>'index')) ?></li>
 					</ul>
 				</li>
 				<li class="logout"><? echo $html->link('SAIR', array('controller'=>'usuarios','action'=>'logout'))?></li>

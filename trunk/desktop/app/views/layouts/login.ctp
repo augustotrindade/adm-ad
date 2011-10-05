@@ -16,9 +16,15 @@
 <div id="wrapper">
 	<div id="header"></div> <!-- end #header -->
 	<div id="content">
-	<?php
-		echo $content_for_layout;
-	?>
+		<?
+			echo $this->Session->flash();
+			echo $this->Session->flash('auth');
+		?>
+		<div id="login">
+		<?php
+			echo $content_for_layout;
+		?>
+		</div>
 	</div> <!-- end #content -->
 	<div id="footer"></div> <!-- end #footer -->
 	<div id="debug">
