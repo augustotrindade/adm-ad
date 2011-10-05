@@ -1,6 +1,8 @@
 <?php
 class Usuario extends AppModel {
 	
+	var $belongsTo = array('Congregacao');
+	
 	function isAuthorized($user, $controller, $action) {
 		
 		switch ($action) {

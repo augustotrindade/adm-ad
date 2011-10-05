@@ -19,9 +19,21 @@ border-right:1px solid #ccc;
 width:960px;
 height:135px;
 margin:0 auto;
-margin-bottom:25px;
+margin-bottom:15px;
 border-bottom:1px solid #ccc;
 border-top:1px solid #ccc;
+}
+
+#header #logado{
+float: right;
+height: 100px;
+width: 200px;
+padding-top: 20px;
+}
+
+#logado table{
+font-size: 12px;
+width: 100%;
 }
 
 #header h2 {
@@ -62,4 +74,31 @@ padding:10px;
 /* auth */
 #authMessage {
 color:red;
+font-weight: bold;
+text-align: center;
 }
+
+/* login */
+#login {
+margin: 0 auto;
+width: 250px;
+}
+#login .input label {
+float:left;
+width:70px;
+}
+#login .checkbox label {
+float:right;
+width:180px;
+}
+
+/* Forms */
+form div.required {
+color: #333;
+font-weight: bold;
+}
+form div.error {
+font-weight: bold;
+}
+
+
