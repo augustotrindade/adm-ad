@@ -1,10 +1,22 @@
 <?php
 class Usuario extends AppModel {
+	var $belongsTo = array(
+		'Congregacao',
+		'Pessoa'
+	);
+	var $validate = array(
+		'login' => array(
+			'required' => array('rule'=>'notempty','message'=>'Campo obrigatorio.'),
+			'unique' => array('rule' => array('validateUniqueUsername'),'message'=>'Este login ja esta em uso, informe outro.'),
+		),
+		'senha' => array('rule'=>'notempty')
+	);
 	
-	var $belongsTo = array('Congregacao');
 	
+	function beforeSave() {
+		return true;
+	}
 	function isAuthorized($user, $controller, $action) {
-		
 		switch ($action) {
 			case 'default' :
 				return false;
@@ -15,6 +27,19 @@ class Usuario extends AppModel {
 				}
 				break;
 		}
+	}
+	
+	function validateUniqueUsername(){
+		$error=0;
+		//Attempt to load based on data in the field
+		$someone = $this->findByLogin($this->data['Usuario']['login']);
+		// if we get a result, this user name is in use, try again!
+		if (isset($someone['Usuario'])){
+			$error++;
+			//debug($someone);
+			//exit;
+		}
+		return $error==0;
 	}
 }
 ?>
