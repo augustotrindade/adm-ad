@@ -12,12 +12,6 @@
 	?>
 </head>
 <body>
-
-<?php 
-	echo $this->Session->flash();    
-	echo $this->Session->flash('auth');
-?>
-
 <div id="wrapper">
 	<div id="header">
 		<div id="logado">
@@ -25,6 +19,10 @@
 				<tr>
 					<td width="60px"><b>Login:</b></td>
 					<td><?= $this->Session->read('Auth.Usuario.login')?></td>
+				</tr>
+				<tr>
+					<td><b>Congrega&ccedil;&atilde;o:</b></td>
+					<td><?= $this->Session->read('Usuario.congregacao_nome')?></td>
 				</tr>
 			</table>
 		</div>
@@ -72,6 +70,7 @@
 						<li class="all"><a href="#">Cidades</a></li>
 						<li class="all"><a href="#">Profiss&otilde;es</a></li>
 						<li class="all"><? echo $html->link('Congregações',array('controller'=>'congregacoes','action'=>'index')) ?></li>
+						<li class="all"><? echo $html->link('Usuarios',array('controller'=>'usuarios','action'=>'index')) ?></li>
 					</ul>
 				</li>
 				<li class="logout"><? echo $html->link('SAIR', array('controller'=>'usuarios','action'=>'logout'))?></li>
@@ -80,7 +79,10 @@
 		
 	</div> <!-- end #nav -->
 	<div id="content">
-	<?php
+	<?php 
+		echo $this->Session->flash();    
+		echo $this->Session->flash('auth');
+	
 		echo $content_for_layout;
 	?>
 	</div> <!-- end #content -->
