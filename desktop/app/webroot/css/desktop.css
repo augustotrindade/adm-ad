@@ -80,17 +80,17 @@ text-align: center;
 }
 
 /* login */
+#login form{
+box-shadow: 0 4px 10px -1px rgba(200, 200, 200, 0.7);
+border-radius:3px 3px 3px 3px;
+padding: 26px 24px 46px;
+}
 #login {
 margin: 0 auto;
 width: 250px;
 }
 #login .input label {
-float:left;
-width:70px;
-}
-#login .checkbox label {
-float:right;
-width:180px;
+width:100%;
 }
 
 /* Forms */
