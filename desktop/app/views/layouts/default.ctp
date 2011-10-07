@@ -65,10 +65,13 @@
 						</li>
 					</ul>
 				</li>
+				<li class="escolaBiblica"><a href="#">ESCOLA BÍBLICA</a>
+					
+				</li>
 				<li class="settings"><a href="#">CONFIGURA&Ccedil;&Otilde;ES</a>
 					<ul>
-						<li class="all"><a href="#"><? echo $html->link('Cidades',array('controller'=>'cidades','action'=>'index')) ?></a></li>
-						<li class="all"><a href="#">Profiss&otilde;es</a></li>
+						<li class="all"><? echo $html->link('Cidades',array('controller'=>'cidades','action'=>'index')) ?></li>
+						<li class="all"><? echo $html->link('Profissões',array('controller'=>'profissoes','action'=>'index')) ?></li>
 						<li class="all"><? echo $html->link('Congregações',array('controller'=>'congregacoes','action'=>'index')) ?></li>
 						<li class="all"><? echo $html->link('Usuarios',array('controller'=>'usuarios','action'=>'index')) ?></li>
 					</ul>

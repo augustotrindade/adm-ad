@@ -10,6 +10,7 @@ float:left; position:relative;
 .menu4 ul li.home {background:transparent url(../img/menu/home_menu.png) 9px 6px no-repeat;}
 .menu4 ul li.logout {background:transparent url(../img/menu/logout_menu.png) 9px 6px no-repeat;}
 .menu4 ul li.tesouraria {background:transparent url(../img/menu/tesouraria_menu.png) 9px 6px no-repeat;}
+.menu4 ul li.escolaBiblica {background:transparent url(../img/menu/eb_menu.png) 9px 6px no-repeat;}
 
 .menu4 ul li.printer {background:transparent url(../img/menu/printer.png) 9px 6px no-repeat;}
 .menu4 ul li.user {background:transparent url(../img/menu/user.gif) 9px 6px no-repeat;}
