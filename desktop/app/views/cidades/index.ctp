@@ -40,8 +40,8 @@ foreach ($cidades as $cidade):
 </div>
 
 <div class="paging">
-	<?php echo $paginator->prev('<< '.__('Anterior', true), array(), null, array('class'=>'disabled'));?>
+	<?php echo $paginator->prev('<< '.__('Anterior', true), array('url' => $paginator->params['pass']), null, array('class'=>'disabled'));?>
  | 	<?php echo $paginator->numbers();?>
-	<?php echo $paginator->next(__('Próximo', true).' >>', array(), null, array('class'=>'disabled'));?>
+	<?php echo $paginator->next(__('Próximo', true).' >>', array('url' => $paginator->params['pass']), null, array('class'=>'disabled'));?>
 </div>
 

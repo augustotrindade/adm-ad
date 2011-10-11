@@ -1,229 +1,259 @@
-
 body {
-background-color:#f1f1f1;
-font-family: verdana,georgia,sans-serif;
-color:#333;
-margin:0;
-padding:0;
-font-size: 12px;
+	background-color: #f1f1f1;
+	font-family: verdana, georgia, sans-serif;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
 }
 
 #wrapper {
-width:960px;
-background-color:#f8f8f8;
-margin:0 auto;
-border-left:1px solid #ccc;
-border-right:1px solid #ccc;
+	width: 960px;
+	background-color: #f8f8f8;
+	margin: 0 auto;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
 }
 
 #header {
-width:960px;
-height:135px;
-margin:0 auto;
-margin-bottom:15px;
-border-bottom:1px solid #ccc;
-border-top:1px solid #ccc;
+	width: 960px;
+	height: 135px;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
 }
 
-#header #logado{
-float: right;
-height: 100px;
-width: 200px;
-padding-top: 20px;
+#header #logado {
+	float: right;
+	height: 100px;
+	width: 200px;
+	padding-top: 20px;
 }
 
-#logado table{
-font-size: 12px;
-width: 100%;
+#logado table {
+	font-size: 12px;
+	width: 100%;
 }
 
 #header h2 {
-padding:10px;
+	padding: 10px;
 }
 
 #content {
-width:940px;
-float:left;
-padding:10px;
+	width: 940px;
+	float: left;
+	padding: 10px;
 }
 
 #sidebar {
-width:200px;
-float:right;
-margin-bottom:25px;
+	width: 200px;
+	float: right;
+	margin-bottom: 25px;
 }
 
 #sidebar a {
-text-decoration:none;
+	text-decoration: none;
 }
 
 #sidebar li {
-list-style:none;
+	list-style: none;
 }
 
 #footer {
-clear:both;
-width:960px;
-height:135px;
-border-top:1px solid #ccc;
+	clear: both;
+	width: 960px;
+	height: 135px;
+	border-top: 1px solid #ccc;
 }
 
 #footer p {
-padding:10px;
+	padding: 10px;
 }
 
 /* auth */
 #authMessage {
-color:red;
-font-weight: bold;
-text-align: center;
+	color: red;
+	font-weight: bold;
+	text-align: center;
 }
 
 /* login */
-#login form{
-box-shadow: 0 4px 10px -1px rgba(200, 200, 200, 0.7);
-border-radius:3px 3px 3px 3px;
-padding: 26px 24px 46px;
+#login form {
+	box-shadow: 0 4px 10px -1px rgba(200, 200, 200, 0.7);
+	border-radius: 3px 3px 3px 3px;
+	padding: 26px 24px 46px;
 }
+
 #login {
-margin: 0 auto;
-width: 250px;
+	margin: 0 auto;
+	width: 250px;
 }
+
 #login .input label {
-width:100%;
-height: 20px;
+	width: 100%;
+	height: 20px;
 }
-#login .submit,
-#login .input{
-padding-top:8px;
+
+#login .submit,#login .input {
+	padding-top: 8px;
+}
+
+#login input{
+	width: 100%;
 }
 
 /* Forms */
 form div.required {
-color: #333;
-font-weight: bold;
+	color: #333;
+	font-weight: bold;
 }
+
 form div.error {
-font-weight: bold;
+	font-weight: bold;
 }
+
 form .input label {
-float:left;
-width:90px;
+	float: left;
+	width: 90px;
 }
+
 .message {
-color: red;
-font-variant: small-caps;
-font-weight: bold;
-text-align: center;
+	color: red;
+	font-variant: small-caps;
+	font-weight: bold;
+	text-align: center;
 }
-.error-message{
-color: red;
+
+.error-message {
+	color: red;
 }
-.index{
-margin: 0 auto;
+
+.index {
+	margin: 0 auto;
 }
+
 /* Tables */
-table {
-/*	background: #fff;*/
+table { /*	background: #fff;*/
 	clear: both;
 	color: #333;
 	margin-bottom: 10px;
 	width: 100%;
 }
+
 th {
 	background: #f2f2f2;
-	border:1px solid #bbb;
+	border: 1px solid #bbb;
 	border-top: 1px solid #fff;
 	border-left: 1px solid #fff;
 	text-align: center;
-	font-size:14px;
+	font-size: 14px;
 }
+
 th a {
-	background:#f2f2f2;
+	background: #f2f2f2;
 	display: block;
 	padding: 2px 4px;
 	text-decoration: none;
 }
+
 th a:hover {
 	background: #ccc;
 	color: #333;
 	text-decoration: none;
 }
-table tr td {
-/*	background: #fff;*/
+
+table tr td { /*	background: #fff;*/
 	text-align: left;
 	vertical-align: top;
-	font-size:14px;
+	font-size: 14px;
 }
+
 table tr.altrow td {
 	background: #f4f4f4;
 }
+
 td.actions {
 	text-align: center;
 	white-space: nowrap;
 }
+
 td.actions a {
 	margin: 0px 6px;
 }
+
 /* Paging */
 div.paging {
-	background:#fff;
+	background: #fff;
 	color: #ccc;
 	margin-bottom: 2em;
-	text-align:center;
+	text-align: center;
 }
+
 div.paging div.disabled {
 	color: #ddd;
 	display: inline;
 }
+
 div.paging span {
+	
 }
+
 div.paging span.current {
 	color: #000;
 }
+
 div.paging span a {
+	
 }
+
 .paginate {
 	align: center;
 }
+
 .paginate .current {
 	color: red;
 }
+
 /* Forms */
 form div.required {
 	color: #333;
 	font-weight: bold;
 }
+
 form div.error {
 	font-weight: bold;
 }
+
 /* Campos formulario */
-input[disabled], input[readonly], select[disabled], select[readonly], checkbox[disabled], checkbox[readonly], textarea[disabled], textarea[readonly] {
-background-color: #dcdcdc; 
+input[disabled],input[readonly],select[disabled],select[readonly],checkbox[disabled],checkbox[readonly],textarea[disabled],textarea[readonly]
+	{
+	background-color: #dcdcdc;
 }
-input[type=submit],
-input[type=button] {
+
+input[type=submit],input[type=button] {
 	border: #d7d5d6 1px solid;
 	width: 120px;
+	font-size: 10pt height :   22px;
+}
+
+input[type=password],input[type=text] {
+	border: #d7d5d6 1px solid;
+	background-color: white;
+	color: black;
 	font-size: 10pt
-	height: 22px;
 }
-input[type=password],
-input[type=text] {
-    border: #d7d5d6 1px solid;
-    background-color : white;
-    color : black;
-    font-size: 10pt
+
+select {
+	border: #d7d5d6 1px solid;
+	background-color: white;
+	color: black;
+	font-size: 10pt
 }
-select{ 
-    border: #d7d5d6 1px solid;
-    background-color : white;
-    color : black;
-    font-size: 10pt
-}
+
 textarea {
 	border: #d7d5d6 1px solid;
-    background-color : white;
-    color : black;
-    font-size: 10pt	
+	background-color: white;
+	color: black;
+	font-size: 10pt
 }

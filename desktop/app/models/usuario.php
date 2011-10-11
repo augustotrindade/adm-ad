@@ -5,10 +5,8 @@ class Usuario extends AppModel {
 		'Pessoa'
 	);
 	var $validate = array(
-		'login' => array(
-			'required' => array('rule'=>'notempty','message'=>'Campo obrigatorio.'),
-			'unique' => array('rule' => array('validateUniqueUsername'),'message'=>'Este login ja esta em uso, informe outro.'),
-		),
+		'login' => array('rule'=>'notempty')
+		,
 		'senha' => array('rule'=>'notempty')
 	);
 	
