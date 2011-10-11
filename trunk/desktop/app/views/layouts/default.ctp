@@ -42,6 +42,7 @@
 						<li class="show subsubl"><a href="#">Controle</a>
 							<ul>
 								<li class="printer"><a href="#">Imprimir Cart&atilde;o</a></li>
+								<li class="printer"><a href="#">Emitir Cartas</a></li>
 							</ul>
 						</li>
 						<li class="show subsubl"><a href="#">Relat&oacute;rios</a>
@@ -54,15 +55,15 @@
 				</li>
 				<li class="tesouraria"><a href="#">TESOURARIA</a>
 					<ul>
-						<li class="add_user"><a href="#">Add new</a></li>
-						<li class="show subsubl"><a href="#">Show</a>
+						<li class="show subsubl"><a href="#">Entradas</a>
 							<ul>
-								<li class="last"><a href="#">Last created</a></li>
-								<li class="first"><a href="#">First created</a></li>
-								<li class="all"><a href="#">All</a></li>
-								<li class="none"><a href="#">None</a></li>
+								<li class="articles"><a href="#">Last created</a></li>
+								<li class="articles"><a href="#">First created</a></li>
+								<li class="articles"><a href="#">All</a></li>
+								<li class="articles"><a href="#">None</a></li>
 							</ul>
 						</li>
+						<li class="articles"><a href="#">Sa&iacute;das</a></li>
 					</ul>
 				</li>
 				<li class="escolaBiblica"><a href="#">ESCOLA BÍBLICA</a>
