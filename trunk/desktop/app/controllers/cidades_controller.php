@@ -5,7 +5,10 @@ class CidadesController extends AppController {
 	var $helpers = array('Html','Form','Javascript','Ajax','Jax');
 	
 	function index() {
-		$this->set('cidades', $this->paginate('Cidade'));
+		$array = $this->montarFiltro();
+		$this->set('array',$array);
+		$this->Cidade->recursive = 0;
+		$this->set('cidades', $this->paginate('Cidade',$this->definirFiltroLike($array)));
 	}
 	
 	function add() {

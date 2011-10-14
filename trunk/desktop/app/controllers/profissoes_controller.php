@@ -5,7 +5,9 @@ class ProfissoesController extends AppController {
 	var $helpers = array('Html','Form','Javascript','Ajax','Jax');
 	
 	function index() {
-		$this->set('profissoes', $this->paginate('Profissao'));
+		$array = $this->montarFiltro();
+		$this->set('array',$array);
+		$this->set('profissoes', $this->paginate('Profissao',$this->definirFiltroLike($array)));
 	}
 	
 	function add() {
