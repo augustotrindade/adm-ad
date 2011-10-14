@@ -1,12 +1,12 @@
 <?php
 class Usuario extends AppModel {
+	var $name = 'Usuario';
 	var $belongsTo = array(
 		'Congregacao',
 		'Pessoa'
 	);
 	var $validate = array(
-		'login' => array('rule'=>'notempty')
-		,
+		'login' => array('rule'=>'notempty'),
 		'senha' => array('rule'=>'notempty')
 	);
 	
@@ -25,19 +25,6 @@ class Usuario extends AppModel {
 				}
 				break;
 		}
-	}
-	
-	function validateUniqueUsername(){
-		$error=0;
-		//Attempt to load based on data in the field
-		$someone = $this->findByLogin($this->data['Usuario']['login']);
-		// if we get a result, this user name is in use, try again!
-		if (isset($someone['Usuario'])){
-			$error++;
-			//debug($someone);
-			//exit;
-		}
-		return $error==0;
 	}
 }
 ?>

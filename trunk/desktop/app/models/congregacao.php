@@ -7,35 +7,10 @@ class Congregacao extends AppModel {
 		'nome' => array('notempty')
 	);
 	
-	
-	
 	var $hasMany = array(
-		'Pessoa' => array(
-			'className' => 'Pessoa',
-			'foreignKey' => 'congregacao_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		"Usuario" => array(
-			'className' => 'Usuario',
-			'foreignKey' => 'congregacao_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
+		'Pessoa',
+		'Usuario',
+		'Talao'
 	);
 	var $belongsTo = array(
 		'Sede' => array(
@@ -49,7 +24,7 @@ class Congregacao extends AppModel {
 	
 	function beforeSave() {
 		if (isset($this->data['Congregacao']['nome'])) {
-			$this->data['Congregacao']['nome'] = trim(strtoupper(strtr($this->data['Congregacao']['nome'],'çãáâõóéêí','ÇÃÁÂÔÓÉÊÍ')));
+			$this->data['Congregacao']['nome'] = trim(strtoupper(strtr($this->data['Congregacao']['nome'],'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½')));
 		}
 		$this->geraCodigo();
 		return true;
