@@ -6,7 +6,9 @@ class UsuariosController extends AppController {
 	var $uses = array ('Usuario', 'Congregacao', 'Pessoa' );
 	
 	function index() {
-		$this->set ( 'usuarios', $this->paginate ( 'Usuario' ) );
+		$array = $this->montarFiltro();
+		$this->set('array',$array);
+		$this->set ( 'usuarios', $this->paginate ( 'Usuario' ,$this->definirFiltroLike($array)) );
 	}
 	
 	function add() {

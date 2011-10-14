@@ -6,8 +6,10 @@ class CongregacoesController extends AppController {
 	var $uses = array('Usuario','Congregacao');
 	
 	function index(){
+		$array = $this->montarFiltro();
+		$this->set('array',$array);
 		$this->Congregacao->recursive = 0;
-		$this->set('congregacoes', $this->paginate('Congregacao'));
+		$this->set('congregacoes', $this->paginate('Congregacao',$this->definirFiltroLike($array)));
 	}
 	
 	function add(){

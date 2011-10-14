@@ -5,6 +5,7 @@
 		<?php echo $form->submit('Pesquisar', array('div'=>false)); ?>
 		<?php echo $form->submit('Novo', array('type'=>'button','div'=>false,'onclick'=>'javascript:window.location.href="'.$html->url(array('controller'=>'cidades','action'=>'add')).'"')); ?>
 <? echo $form->end() ?>
+<?= $this->Paginator->options(array('url' => array_merge($array, $this->passedArgs)));?>
 <table cellpadding="0" cellspacing="0">
 <tr>
 	<th width="50px"><?php echo $paginator->sort('id');?></th>
@@ -38,10 +39,9 @@ foreach ($cidades as $cidade):
 <?php endforeach; ?>
 </table>
 </div>
-
 <div class="paging">
-	<?php echo $paginator->prev('<< '.__('Anterior', true), array('url' => $paginator->params['pass']), null, array('class'=>'disabled'));?>
+	<?php echo $paginator->prev('<< '.__('Anterior', true), null, null, array('class'=>'disabled'));?>
  | 	<?php echo $paginator->numbers();?>
-	<?php echo $paginator->next(__('Próximo', true).' >>', array('url' => $paginator->params['pass']), null, array('class'=>'disabled'));?>
+	<?php echo $paginator->next(__('Próximo', true).' >>', null, null, array('class'=>'disabled'));?>
 </div>
 

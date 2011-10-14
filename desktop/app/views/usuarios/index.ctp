@@ -1,4 +1,11 @@
 <div class="usuarios index">
+<?php $session->flash(); ?>
+<? echo $form->create('Usuario',array('action'=>'index')); ?>
+		<?php echo $form->input('login', array('size'=>'40','maxlength'=>'255')); ?>
+		<?php echo $form->submit('Pesquisar', array('div'=>false)); ?>
+		<?php echo $form->submit('Novo', array('type'=>'button','div'=>false,'onclick'=>'javascript:window.location.href="'.$html->url(array('controller'=>'usuarios','action'=>'add')).'"')); ?>
+<? echo $form->end() ?>
+<?= $this->Paginator->options(array('url' => array_merge($array, $this->passedArgs)));?>
 <table cellpadding="0" cellspacing="0">
 		<tr>
 			<th width="50px"><?php echo $paginator->sort('id');?></th>
