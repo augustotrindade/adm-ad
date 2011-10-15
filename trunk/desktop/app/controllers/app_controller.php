@@ -1,6 +1,6 @@
 <?php
 class AppController extends Controller {
-	var $paginate = array('limit' => 1);
+	var $paginate = array('limit' => 50);
 	var $components = array('Auth','Cookie','Session');
 	var $uses = array('Congregacao');
 

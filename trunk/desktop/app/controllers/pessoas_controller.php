@@ -2,7 +2,7 @@
 class PessoasController extends AppController {
 	
 	var $name = 'Pessoas';
-	var $helpers = array('Html','Form','Javascript');
+	var $helpers = array('Html','Form','Javascript','Xml');
 	var $uses = array('Pessoa','Cidade');
 	
 	function index(){
@@ -12,8 +12,7 @@ class PessoasController extends AppController {
 	}
 	
 	function add(){
-		$this->set('estados',$this->Cidade->getEstados());
-		$this->set('cidadeenderecos',$this->Cidade->find('list'));
+		$this->set('estadoenderecos',$this->Cidade->getEstados());
 	}
 	
 	function edit($id = null) {
@@ -23,9 +22,9 @@ class PessoasController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Pessoa->read(null, $id);
+			$this->set('cidadeenderecos',$this->Cidade->find('list',array('conditions'=>array('Cidade.uf'=>$this->data['Cidadeendereco']['uf']),'order'=>'nome')));
 		}
 		$this->set('estadoenderecos',$this->Cidade->getEstados());
-		$this->set('cidadeenderecos',$this->Cidade->find('list'));
 		$this->render('add');
 	}
 	
@@ -54,6 +53,16 @@ class PessoasController extends AppController {
 				}
 			}
 		}
+	}
+	
+	function cidadesXml(){
+		$this->layout = 'xml/default';
+		$cidades = array();
+		$uf = isset($this->params['form']['uf']) ? $this->params['form']['uf'] : null;
+		if ($uf!=null) {
+			$cidades = $this->Cidade->find('list',array('conditions'=>array('Cidade.uf'=>$uf)));
+		}
+		$this->set('cidades',$cidades);
 	}
 }
 ?>
