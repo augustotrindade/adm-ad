@@ -116,7 +116,7 @@ form div.error {
 
 form .input label {
 	float: left;
-	width: 90px;
+	width: 100px;
 }
 
 .message {
@@ -257,4 +257,7 @@ textarea {
 	background-color: white;
 	color: black;
 	font-size: 10pt
+}
+div .input {
+	padding: 2px;	
 }
