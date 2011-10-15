@@ -2,7 +2,7 @@
 text-align:left; font-family: verdana, sans-serif; position:relative; font-size:0.85em; background:transparent; width:600px; height:30px; margin:0 auto;
 }
 .menu4 ul {
-padding:0; margin:0; list-style-type: none;
+padding:0; margin:0; list-style-type: none;z-index:999999;
 }
 .menu4 ul li {
 float:left; position:relative;

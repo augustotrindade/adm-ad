@@ -2,6 +2,20 @@
 $(function() {
 	$("#tabs").tabs();
 });
+$(document).ready(function(){
+	$(".uf").change(function(){
+		var SelcCidade = this.id;
+		$.post("<? echo $html->url(array('action'=>'cidadesXml')); ?>", {uf: $("#"+SelcCidade).val()}, function(xml){
+			$("."+SelcCidade).html('');
+			var opt = '';
+			opt += '<option value="">.:: SELECIONE ::.</option>';
+			$('cidade',xml).each(function(){
+				opt += '<option value="'+$('id',this).text()+'">'+$('nome',this).text()+'</option>';
+			});
+			$("."+SelcCidade).html(opt);
+		});
+	});
+});
 </script>
 <div class="pessoas form">
 <?php 
@@ -28,8 +42,8 @@ $(function() {
 		echo $form->input('endereco', array('size'=>'80','maxlength'=>'200'));
 		echo $form->input('complemento', array('size'=>'80','maxlength'=>'250'));
 		echo $form->input('bairro', array('size'=>'40','maxlength'=>'80'));
-		echo $form->input('estadoendereco_id', array('empty'=>'--------','label'=>'Estado'));
-		echo $form->input('cidadeendereco_id', array('empty'=>'--------','label'=>'Cidade'));
+		echo $form->input('estadoendereco_id', array('empty'=>'.:: SELECIONE ::.','label'=>'Estado','class'=>'uf'));
+		echo $form->input('cidadeendereco_id', array('empty'=>'.:: SELECIONE ::.','label'=>'Cidade','class'=>'PessoaEstadoenderecoId'));
 		?>
 	</div>
 	<div id="ecleticos">
@@ -38,7 +52,7 @@ $(function() {
 </div>
 <br>
 <?
-	echo $form->submit('Salvar', array('div'=>false));
+	echo $form->submit('Salvar', array('div'=>false)).' ';
 	echo $form->submit('Voltar', array('type'=>'button','div'=>false,'onclick'=>'javascript:window.location.href="'.$html->url(array('controller'=>'pessoas','action'=>'index')).'"'));
 	echo $form->end();
 ?>
