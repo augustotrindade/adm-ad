@@ -26,6 +26,9 @@ class Pessoa extends AppModel {
 	);
 	
 	function beforeSave() {
+		if (isset($this->data['Pessoa']['nome'])) {
+			$this->data['Pessoa']['nome'] = trim(strtoupper(strtr($this->data['Pessoa']['nome'],'çãáâõóéêí','ÇÃÁÂÔÓÉÊÍ')));
+		}
 		return true;
 	}
 }
