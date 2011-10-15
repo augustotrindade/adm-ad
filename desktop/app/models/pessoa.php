@@ -19,7 +19,11 @@ class Pessoa extends AppModel {
 		'Usuario'
 	);
 	var $belongsTo = array(
-		'Status'
+		'Status',
+		'Cidadeendereco'=>array(
+			'className'=>'Cidade',
+			'foreignKey'=>'cidadeendereco_id'
+		)
 	);
 	var $hasAndBelongsToMany = array(
 		'Tipopessoa'
@@ -30,6 +34,17 @@ class Pessoa extends AppModel {
 			$this->data['Pessoa']['nome'] = trim(strtoupper(strtr($this->data['Pessoa']['nome'],'çãáâõóéêí','ÇÃÁÂÔÓÉÊÍ')));
 		}
 		return true;
+	}
+	
+	function afterFind($resultado){
+		if(count($resultado)>0){
+			foreach ($resultado as $k => $v) {
+				if(isset($v['Cidadeendereco'])){
+					$resultado[$k]['Pessoa']['estadoendereco_id'] = $v['Cidadeendereco']['uf'];
+				}
+			}
+		}
+		return $resultado;
 	}
 }
 ?>

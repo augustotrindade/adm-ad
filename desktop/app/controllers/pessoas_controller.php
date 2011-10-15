@@ -3,7 +3,7 @@ class PessoasController extends AppController {
 	
 	var $name = 'Pessoas';
 	var $helpers = array('Html','Form','Javascript');
-	var $uses = array('Pessoa');
+	var $uses = array('Pessoa','Cidade');
 	
 	function index(){
 		$array = $this->montarFiltro();
@@ -12,7 +12,8 @@ class PessoasController extends AppController {
 	}
 	
 	function add(){
-		
+		$this->set('estados',$this->Cidade->getEstados());
+		$this->set('cidadeenderecos',$this->Cidade->find('list'));
 	}
 	
 	function edit($id = null) {
@@ -23,6 +24,8 @@ class PessoasController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Pessoa->read(null, $id);
 		}
+		$this->set('estadoenderecos',$this->Cidade->getEstados());
+		$this->set('cidadeenderecos',$this->Cidade->find('list'));
 		$this->render('add');
 	}
 	

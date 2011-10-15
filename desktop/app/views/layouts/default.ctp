@@ -9,6 +9,12 @@
 
 		echo $html->css('desktop');
 		echo $html->css('menu');
+		echo $html->css('themes_jquery/jquery-ui-1.8.16.custom');
+		
+		echo $html->script('jquery');
+		echo $html->script('jquery.ui.core');
+		echo $html->script('jquery.ui.widget');
+		echo $html->script('jquery.ui.tabs');
 	?>
 </head>
 <body>
