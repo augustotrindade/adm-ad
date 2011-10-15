@@ -8,7 +8,15 @@ class Pessoa extends AppModel {
 	);
 	var $hasMany = array(
 		'Filho',
-		'Ocorrencia'
+		'Ocorrencia',
+		'Contato',
+		'Lancamento'=>array(
+			'className'=>'Lancamento',
+			'foreignKey'=>'dizimista_id'
+		)
+	);
+	var $hasOne = array(
+		'Usuario'
 	);
 	var $belongsTo = array(
 		'Status'

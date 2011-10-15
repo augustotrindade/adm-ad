@@ -36,7 +36,7 @@
 					<ul>
 						<li class="show subsubl"><a href="#">Cadastros</a>
 							<ul>
-								<li class="user"><? echo $html->link('Membros', array('controller'=>'membros','action'=>'index'))?></li>
+								<li class="user"><? echo $html->link('Pessoa', array('controller'=>'pessoas','action'=>'index'))?></li>
 							</ul>
 						</li>
 						<li class="show subsubl"><a href="#">Controle</a>

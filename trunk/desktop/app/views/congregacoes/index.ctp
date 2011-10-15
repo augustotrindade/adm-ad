@@ -1,6 +1,7 @@
 <div class="congregacoes index">
 <?php $session->flash(); ?>
 <? echo $form->create('Congregacao',array('action'=>'index')); ?>
+	<?php echo $form->input('codigo', array('size'=>'20','maxlength'=>'40')); ?>
 	<?php echo $form->input('nome', array('size'=>'40','maxlength'=>'255')); ?>
 	<?php echo $form->submit('Pesquisar', array('div'=>false)); ?>
 	<?php echo $form->submit('Novo', array('type'=>'button','div'=>false,'onclick'=>'javascript:window.location.href="'.$html->url(array('controller'=>'congregacoes','action'=>'add')).'"')); ?>
