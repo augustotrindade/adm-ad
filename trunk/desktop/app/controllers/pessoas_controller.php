@@ -3,7 +3,7 @@ class PessoasController extends AppController {
 	
 	var $name = 'Pessoas';
 	var $helpers = array('Html','Form','Javascript','Xml');
-	var $uses = array('Pessoa','Cidade');
+	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil');
 	
 	function index(){
 		$array = $this->montarFiltro();
@@ -12,7 +12,9 @@ class PessoasController extends AppController {
 	}
 	
 	function add(){
+		$this->set('congregacoes',$this->Congregacao->find('list',array('order'=>'Congregacao.codigo')));
 		$this->set('estadoenderecos',$this->Cidade->getEstados());
+		$this->set('estadocivis',$this->Estadocivil->find('list'));
 	}
 	
 	function edit($id = null) {

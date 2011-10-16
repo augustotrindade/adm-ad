@@ -25,6 +25,7 @@ $(document).ready(function(){
 <div id="tabs">
 	<ul>
 		<li><a href="#dados_basicos">Dados Basicos</a></li>
+		<li><a href="#pessoais">Pessoais</a></li>
 		<li><a href="#endereco">Endere&ccedil;o</a></li>
 		<li><a href="#ecleticos">Ecleticos</a></li>
 		<li><a href="#ecleticos">Ocorrencias</a></li>
@@ -34,6 +35,12 @@ $(document).ready(function(){
 		<?
 		//ABA DADOS BASICOS
 		echo $form->input('nome', array('size'=>'80','maxlength'=>'200'));
+		?>
+	</div>
+	<div id="pessoais">
+		<?
+		//ABA PESSOAIS
+		echo $form->input('estadocivil_id', array('label'=>'Estado Civil','empty'=>'.:: SELECIONE ::.'));
 		?>
 	</div>
 	<div id="endereco">
@@ -47,7 +54,9 @@ $(document).ready(function(){
 		?>
 	</div>
 	<div id="ecleticos">
-		teste
+		<?
+		echo $form->input('congregacao_id',array('label'=>'Congregação','empty'=>'.:: SELECIONE ::.'))
+		?>
 	</div>
 </div>
 <br>
