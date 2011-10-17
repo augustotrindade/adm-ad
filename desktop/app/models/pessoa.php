@@ -12,7 +12,8 @@ class Pessoa extends AppModel {
 		'Contato',
 		'Lancamento'=>array(
 			'className'=>'Lancamento',
-			'foreignKey'=>'dizimista_id'
+			'foreignKey'=>'dizimista_id',
+			'limit' => '10'
 		)
 	);
 	var $hasOne = array(

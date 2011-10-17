@@ -15,7 +15,8 @@
 		echo $html->script('jquery.ui.core');
 		echo $html->script('jquery.ui.widget');
 		echo $html->script('jquery.ui.tabs');
-	?>
+		
+		?>
 </head>
 <body>
 <div id="wrapper">
