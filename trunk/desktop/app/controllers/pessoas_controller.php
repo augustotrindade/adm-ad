@@ -2,8 +2,9 @@
 class PessoasController extends AppController {
 	
 	var $name = 'Pessoas';
-	var $helpers = array('Html','Form','Javascript','Xml');
+	var $helpers = array('Html','Form','Javascript','Xml','Ajax');
 	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil');
+	var $components = array( 'RequestHandler' );
 	
 	function index(){
 		$array = $this->montarFiltro();
@@ -26,15 +27,17 @@ class PessoasController extends AppController {
 			$this->data = $this->Pessoa->read(null, $id);
 			$this->set('cidadeenderecos',$this->Cidade->find('list',array('conditions'=>array('Cidade.uf'=>$this->data['Cidadeendereco']['uf']),'order'=>'nome')));
 		}
+		$this->set('congregacoes',$this->Congregacao->find('list',array('order'=>'Congregacao.codigo')));
 		$this->set('estadoenderecos',$this->Cidade->getEstados());
+		$this->set('estadocivis',$this->Estadocivil->find('list'));
 		$this->render('add');
 	}
 	
 	function save($id = null){
 		if (!$id) {
 			if (!empty($this->data)) {
-			$this->Pessoa->create();
-				if ($this->Pessoa->save($this->data)) {
+				$this->Pessoa->create();
+				if ($this->Pessoa->saveAll($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));
 					$this->redirect(array('action'=>'index'));
 				} else {
@@ -46,7 +49,8 @@ class PessoasController extends AppController {
 			}
 		} else {
 			if (!empty($this->data)) {
-				if ($this->Pessoa->save($this->data)) {
+				
+				if ($this->Pessoa->saveAll($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));
 					$this->redirect(array('action'=>'index'));
 				} else {

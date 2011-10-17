@@ -5,6 +5,10 @@ $(function() {
 $(document).ready(function(){
 	$(".uf").change(function(){
 		var SelcCidade = this.id;
+		
+		var agu = '<option value="">.:: AGUARDE ::.</option>';
+		$("."+SelcCidade).html(agu);
+		
 		$.post("<? echo $html->url(array('action'=>'cidadesXml')); ?>", {uf: $("#"+SelcCidade).val()}, function(xml){
 			$("."+SelcCidade).html('');
 			var opt = '';
@@ -28,8 +32,8 @@ $(document).ready(function(){
 		<li><a href="#pessoais">Pessoais</a></li>
 		<li><a href="#endereco">Endere&ccedil;o</a></li>
 		<li><a href="#ecleticos">Ecleticos</a></li>
-		<li><a href="#ecleticos">Ocorrencias</a></li>
-		<li><a href="#ecleticos">Historico Dizimo</a></li>
+		<li><a href="#ocorrencias">Ocorrencias</a></li>
+		<li><a href="#dizimo">Historico Dizimo</a></li>
 	</ul>
 	<div id="dados_basicos">
 		<?
@@ -41,6 +45,22 @@ $(document).ready(function(){
 		<?
 		//ABA PESSOAIS
 		echo $form->input('estadocivil_id', array('label'=>'Estado Civil','empty'=>'.:: SELECIONE ::.'));
+		//echo $form->input('Filho.0.id');
+		//echo $form->input('Filho.0.nome');
+		//echo $form->input('Filho.0.sexo');
+		//echo $form->input('Filho.0.data_nascimento');
+		//echo '<br>';
+		//echo $form->input('Filho.1.id');
+		//echo $form->input('Filho.1.nome');
+		//echo $form->input('Filho.1.sexo');
+		//echo $form->input('Filho.1.data_nascimento');
+		?>
+		<div id="filhos">
+		
+			
+		</div>
+		<?php
+		echo $ajax->link('adicionar filho',array('controller'=>'pessoa','action'=>'add_filho'),array('update'=>'filhos'));
 		?>
 	</div>
 	<div id="endereco">
@@ -55,7 +75,34 @@ $(document).ready(function(){
 	</div>
 	<div id="ecleticos">
 		<?
+		//ABA ECLETICOS
 		echo $form->input('congregacao_id',array('label'=>'Congregação','empty'=>'.:: SELECIONE ::.'))
+		?>
+	</div>
+	<div id="ocorrencias">
+		<?
+		//ABA OCORRENCIAS
+		if(isset($this->data['Ocorrencia']) && count($this->data['Ocorrencia'])>0){
+			foreach($this->data['Ocorrencia'] as $o){
+				echo $o['data'].' --> ';
+				echo $o['ocorrencia'];
+			}
+		} else {
+			echo 'N&atilde;o possui ocorrencias registradas';
+		}
+		?>
+	</div>
+	<div id="dizimo">
+		<?
+		//ABA OCORRENCIAS
+		if(isset($this->data['Lancamento']) && count($this->data['Lancamento'])>0){
+			foreach($this->data['Lancamento'] as $l){
+				echo $o['data'].' --> ';
+				echo $o['valor'];
+			}
+		} else {
+			echo 'N&atilde;o possui dizimos registrados';
+		}
 		?>
 	</div>
 </div>
