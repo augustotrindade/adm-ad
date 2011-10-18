@@ -5,6 +5,7 @@ class PessoasController extends AppController {
 	var $helpers = array('Html','Form','Javascript','Xml','Ajax');
 	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil');
 	var $components = array( 'RequestHandler' );
+	var $contador = 0;
 	
 	function index(){
 		$array = $this->montarFiltro();
@@ -69,6 +70,11 @@ class PessoasController extends AppController {
 			$cidades = $this->Cidade->find('list',array('conditions'=>array('Cidade.uf'=>$uf)));
 		}
 		$this->set('cidades',$cidades);
+	}
+	
+	function add_filhos(){
+		$this->contador++;
+		$this->set('seq',$this->contador);
 	}
 }
 ?>

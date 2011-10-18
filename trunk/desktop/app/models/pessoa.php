@@ -21,6 +21,7 @@ class Pessoa extends AppModel {
 	);
 	var $belongsTo = array(
 		'Status',
+		'Congregacao',
 		'Cidadeendereco'=>array(
 			'className'=>'Cidade',
 			'foreignKey'=>'cidadeendereco_id'
