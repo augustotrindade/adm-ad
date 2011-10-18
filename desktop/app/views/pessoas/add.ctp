@@ -31,6 +31,7 @@ $(document).ready(function(){
 		<li><a href="#dados_basicos">Dados Basicos</a></li>
 		<li><a href="#pessoais">Pessoais</a></li>
 		<li><a href="#endereco">Endere&ccedil;o</a></li>
+		<li><a href="#contatos">Contatos</a></li>
 		<li><a href="#ecleticos">Ecleticos</a></li>
 		<li><a href="#ocorrencias">Ocorrencias</a></li>
 		<li><a href="#dizimo">Historico Dizimo</a></li>
@@ -45,6 +46,11 @@ $(document).ready(function(){
 		<?
 		//ABA PESSOAIS
 		echo $form->input('estadocivil_id', array('label'=>'Estado Civil','empty'=>'.:: SELECIONE ::.'));
+		echo $form->input('apelido', array('size'=>'40','maxlength'=>'50'));
+		echo $form->input('nome_conjuge', array('size'=>'80','maxlength'=>'200'));
+		echo $form->input('nome_pai', array('size'=>'80','maxlength'=>'200'));
+		echo $form->input('nome_mae', array('size'=>'80','maxlength'=>'200'));
+		
 		//echo $form->input('Filho.0.id');
 		//echo $form->input('Filho.0.nome');
 		//echo $form->input('Filho.0.sexo');
@@ -55,12 +61,19 @@ $(document).ready(function(){
 		//echo $form->input('Filho.1.sexo');
 		//echo $form->input('Filho.1.data_nascimento');
 		?>
-		<div id="filhos">
-		
-			
-		</div>
 		<?php
-		echo $ajax->link('adicionar filho',array('controller'=>'pessoa','action'=>'add_filho'),array('update'=>'filhos'));
+		 echo $ajax->link('Ajax link', '/pessoas/add_filhos/', array(
+		        'update' => 'filhos'
+		  ));
+		 ?>
+		<div id="filhos">
+			Criar código ajax para add filhos
+			<?
+				//echo $this->render(null, 'ajax', 'add_filhos');
+			?>
+		</div>
+		<?
+		//echo $javascript->codeBlock($ajax->remoteFunction(array('url'=>array('controller'=>'pessoas','action'=>'add_filhos'),'update'=>'filhos','type'=>'get')));
 		?>
 	</div>
 	<div id="endereco">
@@ -72,6 +85,9 @@ $(document).ready(function(){
 		echo $form->input('estadoendereco_id', array('empty'=>'.:: SELECIONE ::.','label'=>'Estado','class'=>'uf'));
 		echo $form->input('cidadeendereco_id', array('empty'=>'.:: SELECIONE ::.','label'=>'Cidade','class'=>'PessoaEstadoenderecoId'));
 		?>
+	</div>
+	<div id="contatos">
+	contatos
 	</div>
 	<div id="ecleticos">
 		<?

@@ -35,6 +35,12 @@ class AppController extends Controller {
 			}
 		} elseif(isset($this->params['named'])) {
 			$params = $this->params['named'];
+			if(isset($params['sort'])){
+				unset($params['sort']);
+			}
+			if(isset($params['direction'])){
+				unset($params['direction']);
+			}
 			if(isset($params['page'])){
 				unset($params['page']);
 				if(count($params)>0){

@@ -10,7 +10,7 @@
 		echo $html->css('desktop');
 	?>
 </head>
-<body>
+<body onload="javascript: document.getElementById('UsuarioLogin').focus();">
 
 
 <div id="wrapper">

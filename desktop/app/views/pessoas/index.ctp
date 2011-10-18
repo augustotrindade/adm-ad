@@ -10,6 +10,7 @@
 		<tr>
 			<th width="50px"><?php echo $paginator->sort('id');?></th>
 			<th><?php echo $paginator->sort('nome');?></th>
+			<th><?php echo $paginator->sort('Congregação','Congregacao.nome');?></th>
 			<th width="160px" class="actions"><?php __('Actions');?></th>
 		</tr>
 		<?php
@@ -26,6 +27,9 @@
 				</td>
 				<td>
 					<?php echo $pessoa['Pessoa']['nome']; ?>
+				</td>
+				<td>
+					<?php echo $pessoa['Congregacao']['nome']; ?>
 				</td>
 				<td class="actions">
 					<?php echo $html->link(__('Editar', true), array('action'=>'edit', $pessoa['Pessoa']['id'])); ?>
