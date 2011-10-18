@@ -3,7 +3,7 @@ class PessoasController extends AppController {
 	
 	var $name = 'Pessoas';
 	var $helpers = array('Html','Form','Javascript','Xml','Ajax');
-	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil');
+	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil','Tipopessoa');
 	var $components = array( 'RequestHandler' );
 	var $contador = 0;
 	
@@ -17,6 +17,8 @@ class PessoasController extends AppController {
 		$this->set('congregacoes',$this->Congregacao->find('list',array('order'=>'Congregacao.codigo')));
 		$this->set('estadoenderecos',$this->Cidade->getEstados());
 		$this->set('estadocivis',$this->Estadocivil->find('list'));
+		$tipopessoas = $this->Pessoa->Tipopessoa->find('list');
+		$this->set(compact('tipopessoas'));
 	}
 	
 	function edit($id = null) {
@@ -31,6 +33,8 @@ class PessoasController extends AppController {
 		$this->set('congregacoes',$this->Congregacao->find('list',array('order'=>'Congregacao.codigo')));
 		$this->set('estadoenderecos',$this->Cidade->getEstados());
 		$this->set('estadocivis',$this->Estadocivil->find('list'));
+		$tipopessoas = $this->Pessoa->Tipopessoa->find('list');
+		$this->set(compact('tipopessoas'));
 		$this->render('add');
 	}
 	
@@ -50,7 +54,6 @@ class PessoasController extends AppController {
 			}
 		} else {
 			if (!empty($this->data)) {
-				
 				if ($this->Pessoa->saveAll($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));
 					$this->redirect(array('action'=>'index'));
