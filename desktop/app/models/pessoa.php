@@ -28,7 +28,12 @@ class Pessoa extends AppModel {
 		)
 	);
 	var $hasAndBelongsToMany = array(
-		'Tipopessoa'
+		'Tipopessoa' => array(
+			'className' => 'Tipopessoa',
+			'foreignKey' => 'pessoa_id',
+			'associationForeignKey' => 'tipopessoa_id',
+			'unique'=>true
+		)
 	);
 	
 	function beforeSave() {

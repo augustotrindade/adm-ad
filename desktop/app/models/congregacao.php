@@ -4,7 +4,7 @@ class Congregacao extends AppModel {
 	var $name = "Congregacao";
 	var $displayField = "codigo_nome";
 	var $virtualFields = array(
-		'codigo_nome' => "CONCAT(Congregacao.codigo, ' ',Congregacao.nome)"
+		'codigo_nome' => "CONCAT(Congregacao.codigo, ' - ',Congregacao.nome)"
 	);
 	var $validate = array(
 		'nome' => array('notempty')

@@ -94,6 +94,24 @@ $(document).ready(function(){
 		//ABA ECLETICOS
 		echo $form->input('congregacao_id',array('label'=>'Congregação','empty'=>'.:: SELECIONE ::.'))
 		?>
+		<fieldset>
+			<legend>Tipo Pessoa</legend>
+			<?
+			$tipopessoa_id = array();
+			if(count($this->data['Tipopessoa'])>0){
+				foreach($this->data['Tipopessoa'] as $tipopessoa){
+					$tipopessoa_id[] = $tipopessoa['id'];
+				}
+			}
+			if(count($tipopessoas)>0){
+				foreach($tipopessoas as $k => $v){
+				?>
+					<input type="checkbox" name="data[Tipopessoa][]" value="<?= $k ?>" <?= in_array($k, $tipopessoa_id) ? 'checked':'' ?>> <?= $v?><br />
+				<?	
+				}
+			}
+			?>
+		</fieldset>
 	</div>
 	<div id="ocorrencias">
 		<?
