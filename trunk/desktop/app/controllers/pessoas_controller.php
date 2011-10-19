@@ -3,9 +3,8 @@ class PessoasController extends AppController {
 	
 	var $name = 'Pessoas';
 	var $helpers = array('Html','Form','Javascript','Xml','Ajax');
-	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil','Tipopessoa');
+	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil','Tipopessoa','Status');
 	var $components = array( 'RequestHandler' );
-	var $contador = 0;
 	
 	function index(){
 		$array = $this->montarFiltro();
@@ -17,6 +16,7 @@ class PessoasController extends AppController {
 		$this->set('congregacoes',$this->Congregacao->find('list',array('order'=>'Congregacao.codigo')));
 		$this->set('estadoenderecos',$this->Cidade->getEstados());
 		$this->set('estadocivis',$this->Estadocivil->find('list'));
+		$this->set('status',$this->Status->find('list'));
 		$tipopessoas = $this->Pessoa->Tipopessoa->find('list');
 		$this->set(compact('tipopessoas'));
 	}
@@ -28,6 +28,7 @@ class PessoasController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Pessoa->read(null, $id);
+			$this->Session('qtde_filhos',count($this->data['Filho']));
 			$this->set('cidadeenderecos',$this->Cidade->find('list',array('conditions'=>array('Cidade.uf'=>$this->data['Cidadeendereco']['uf']),'order'=>'nome')));
 		}
 		$this->set('congregacoes',$this->Congregacao->find('list',array('order'=>'Congregacao.codigo')));
@@ -76,8 +77,9 @@ class PessoasController extends AppController {
 	}
 	
 	function add_filhos(){
-		$this->contador++;
-		$this->set('seq',$this->contador);
+		if($this->Session->check('qtde_filhos')){
+		
+		}
 	}
 }
 ?>

@@ -85,6 +85,7 @@
 						<li class="all"><? echo $html->link('Congregações',array('controller'=>'congregacoes','action'=>'index')) ?></li>
 						<li class="all"><? echo $html->link('Usuarios',array('controller'=>'usuarios','action'=>'index')) ?></li>
 						<li class="all"><? echo $html->link('Tipo Pessoas',array('controller'=>'tipopessoas','action'=>'index')) ?></li>
+						<li class="all"><? echo $html->link('Status',array('controller'=>'status','action'=>'index')) ?></li>
 					</ul>
 				</li>
 				<li class="logout"><? echo $html->link('SAIR', array('controller'=>'usuarios','action'=>'logout'))?></li>

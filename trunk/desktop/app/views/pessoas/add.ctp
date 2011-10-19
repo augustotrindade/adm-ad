@@ -40,6 +40,7 @@ $(document).ready(function(){
 		<?
 		//ABA DADOS BASICOS
 		echo $form->input('nome', array('size'=>'80','maxlength'=>'200'));
+		echo $form->input('status_id',array('empty'=>'.:: SELECIONE ::.'));
 		?>
 	</div>
 	<div id="pessoais">
