@@ -1,6 +1,7 @@
 <div class="pessoas index">
 <?php echo $this->Session->flash(); ?>
 <? echo $form->create('Pessoa',array('action'=>'index')); ?>
+		<?php echo $form->input('status_id',array('empty'=>'.:: SELECIONE ::.','options'=>$status));?>
 		<?php echo $form->input('nome', array('size'=>'40','maxlength'=>'255')); ?>
 		<?php echo $form->submit('Pesquisar', array('div'=>false)); ?>
 		<?php echo $form->submit('Novo', array('type'=>'button','div'=>false,'onclick'=>'javascript:window.location.href="'.$html->url(array('controller'=>'pessoas','action'=>'add')).'"')); ?>

@@ -3,6 +3,7 @@ class Status extends AppModel {
 	
 	var $name = 'Status';
 	var $useTable = 'status';
+	var $displayField = 'nome';
 	var $validate = array(
 		'nome' => array('rule'=>'notempty')
 	);

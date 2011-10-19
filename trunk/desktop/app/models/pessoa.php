@@ -4,6 +4,7 @@ class Pessoa extends AppModel {
 	var $name = 'Pessoa';
 	var $validate = array(
 		'nome' => array('rule'=>'notempty'),
+		'sexo' => array('rule'=>'notempty'),
 		'status_id' => array('rule'=>'notempty')
 	);
 	var $hasMany = array(
@@ -25,6 +26,10 @@ class Pessoa extends AppModel {
 		'Cidadeendereco'=>array(
 			'className'=>'Cidade',
 			'foreignKey'=>'cidadeendereco_id'
+		),
+		'Cidadenaturalidade'=>array(
+			'className'=>'Cidade',
+			'foreignKey'=>'cidadenaturalidade_id'
 		)
 	);
 	var $hasAndBelongsToMany = array(
@@ -40,6 +45,18 @@ class Pessoa extends AppModel {
 		if (isset($this->data['Pessoa']['nome'])) {
 			$this->data['Pessoa']['nome'] = trim(strtoupper(strtr($this->data['Pessoa']['nome'],'çãáâõóéêí','ÇÃÁÂÔÓÉÊÍ')));
 		}
+		if (isset($this->data['Pessoa']['nome_pai'])) {
+			$this->data['Pessoa']['nome_pai'] = trim(strtoupper(strtr($this->data['Pessoa']['nome_pai'],'çãáâõóéêí','ÇÃÁÂÔÓÉÊÍ')));
+		}
+		if (isset($this->data['Pessoa']['nome_mae'])) {
+			$this->data['Pessoa']['nome_mae'] = trim(strtoupper(strtr($this->data['Pessoa']['nome_mae'],'çãáâõóéêí','ÇÃÁÂÔÓÉÊÍ')));
+		}
+		if (isset($this->data['Pessoa']['nome_conjuge'])) {
+			$this->data['Pessoa']['nome_conjuge'] = trim(strtoupper(strtr($this->data['Pessoa']['nome_conjuge'],'çãáâõóéêí','ÇÃÁÂÔÓÉÊÍ')));
+		}
+		if (isset($this->data['Pessoa']['apelido'])) {
+			$this->data['Pessoa']['apelido'] = trim(strtoupper(strtr($this->data['Pessoa']['apelido'],'çãáâõóéêí','ÇÃÁÂÔÓÉÊÍ')));
+		}
 		return true;
 	}
 	
@@ -49,9 +66,17 @@ class Pessoa extends AppModel {
 				if(isset($v['Cidadeendereco'])){
 					$resultado[$k]['Pessoa']['estadoendereco_id'] = $v['Cidadeendereco']['uf'];
 				}
+				if(isset($v['Cidadenaturalidade'])){
+					$resultado[$k]['Pessoa']['estadonaturalidade_id'] = $v['Cidadenaturalidade']['uf'];
+				}
 			}
 		}
 		return $resultado;
+	}
+	
+	function getSexos(){
+		$sexos = array('M'=>'Masculino','F'=>'Femenino');
+		return $sexos;
 	}
 }
 ?>
