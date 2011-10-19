@@ -6,8 +6,11 @@ class Status extends AppModel {
 	var $validate = array(
 		'nome' => array('rule'=>'notempty')
 	);
-	var $belongsTo = array(
-		'Pessoa'
+	var $hasMany = array(
+		'Pessoa'=>array(
+			'className'=>'Pessoa',
+			'foreignKey' => 'status_id',
+		)
 	);
 	
 	function beforeSave() {
