@@ -47,7 +47,7 @@ class CropimageHelper extends Helper {
 
     function createForm($imagePath, $tH, $tW){ 
         $x1 =         $this->Form->hidden('x1', array("value" => "", "id"=>"x1")); 
-            $y1 =         $this->Form->hidden('y1', array("value" => "", "id"=>"y1")); 
+        $y1 =         $this->Form->hidden('y1', array("value" => "", "id"=>"y1")); 
             $x2 =         $this->Form->hidden('x2', array("value" => "", "id"=>"x2",)); 
             $y2 =         $this->Form->hidden('y2', array("value" => "", "id"=>"y2")); 
             $w =             $this->Form->hidden('w', array("value" => "", "id"=>"w")); 
