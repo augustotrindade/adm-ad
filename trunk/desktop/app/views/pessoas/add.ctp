@@ -39,6 +39,15 @@ $(document).ready(function(){
 	</ul>
 	<div id="dados_basicos">
 		<?
+		echo $form->input('foto', array('type'=>'hidden','id'=>'foto')); 
+		echo $form->input('upload', array('type'=>'hidden','id'=>'upload','value'=>'false')); 
+		?>
+		<div onclick="window.open('<?php echo $html->url(array('controller'=>'fotos','action'=>'index','id'=>$this->data['Pessoa']['id'])); ?>','page','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=800,height=600');return false;">
+			<?php 
+			echo $html->image('/fotos_cartao/'.($this->data['Pessoa']['foto'] ? $this->data['Pessoa']['foto'] : 'sem_foto.gif'),array('width'=>'100px','border'=>'1px','id'=>'imgFoto')); 
+			?>
+		</div>
+		<?
 		//ABA DADOS BASICOS
 		echo $form->input('nome', array('size'=>'80','maxlength'=>'200'));
 		echo $form->input('sexo',array('empty'=>'.:: SELECIONE ::.','options'=>$sexo));
@@ -53,7 +62,6 @@ $(document).ready(function(){
 			echo $form->input('cidadenaturalidade_id', array('empty'=>'.:: SELECIONE ::.','label'=>'Cidade','class'=>'PessoaEstadonaturalidadeId'));
 			?>
 		</fieldset>
-		
 	</div>
 	<div id="documentos">
 		<fieldset>
