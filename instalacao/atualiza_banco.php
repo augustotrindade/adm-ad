@@ -35,7 +35,6 @@ if (!$conn) {
 }
 
 parse_mysql_dump($arquivo);
-
-
-echo 'Atualização realizada com sucesso!';
 ?>
+Atualização realizada com sucesso! <br />
+<a href="http://localhost/adm-ad/desktop/usuarios/login">Voltar ao sistema</a>

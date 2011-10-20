@@ -26,7 +26,9 @@
 		?>
 		</div>
 	</div> <!-- end #content -->
-	<div id="footer"></div> <!-- end #footer -->
+	<div id="footer">
+		<a href="http://localhost/adm-ad/instalacao/atualiza_banco.php">Atualizar banco de dados</a>
+	</div> <!-- end #footer -->
 	<div id="debug">
 	<?php
 		//echo $this->element('sql_dump'); 
