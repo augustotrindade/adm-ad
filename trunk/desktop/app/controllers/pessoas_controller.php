@@ -5,6 +5,7 @@ class PessoasController extends AppController {
 	var $helpers = array('Html','Form','Javascript','Xml','Ajax','Time','Cropimage','Number');
 	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil','Tipopessoa','Status','Filho','Tipocontato','Contato','Grauinstrucao');
 	var $components = array( 'RequestHandler','Upload','JqImgcrop' );
+	var $destino = 'fotos_cartao/';
 	
 	function index(){
 		$array = $this->montarFiltro();
@@ -62,9 +63,15 @@ class PessoasController extends AppController {
 		$this->set('cidadeenderecos',$this->Cidade->find('list',array('conditions'=>array('Cidade.uf'=>$this->data['Pessoa']['estadoendereco_id']),'order'=>'nome')));
 		$this->validar_filhos();
 		$this->validar_contatos();
+		$caminhoImagem = null;
 		if (!$id) {
 			if (!empty($this->data)) {
 				$this->Pessoa->create();
+				if ($this->data['Pessoa']['upload']!='false') {
+					$destination = realpath($this->destino).'/'.basename($this->data['Pessoa']['foto']);
+					copy(realpath('./img/upload/').'/'.basename($this->data['Pessoa']['foto']),$destination);
+					$this->data['Pessoa']['foto'] = basename($this->data['Pessoa']['foto']);
+				}
 				if ($this->Pessoa->saveAll($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));
 					$this->redirect(array('action'=>'index'));
@@ -77,6 +84,11 @@ class PessoasController extends AppController {
 			}
 		} else {
 			if (!empty($this->data)) {
+				if ($this->data['Pessoa']['upload']!='false') {
+					$destination = realpath($this->destino).'/'.basename($this->data['Pessoa']['foto']);
+					copy(realpath('./img/upload/').'/'.basename($this->data['Pessoa']['foto']),$destination);
+					$this->data['Pessoa']['foto'] = basename($this->data['Pessoa']['foto']);
+				}
 				if ($this->Pessoa->saveAll($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));
 					$this->redirect(array('action'=>'index'));
@@ -84,6 +96,14 @@ class PessoasController extends AppController {
 					$this->Session->setFlash(__('Não foi possível salvar. Tente novamente.', true));
 					$this->redirect(array('action'=>'edit','id'=>$id));
 				}
+			}
+		}
+	}
+	//olhar melhor esse codigo
+	function apagarImagemAntiga($caminhoImagem=null){
+		if(!is_null($caminhoImagem)){
+			if(is_file($caminhoImagem)){
+				unlink($caminhoImagem);
 			}
 		}
 	}

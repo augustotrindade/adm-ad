@@ -11,7 +11,7 @@ class FotosController extends AppController {
 		if(isset($this->params['named']['id']) && $this->params['named']['id']!=''){
 			$this->set('pessoa',$this->params['named']['id']);
 		} else {
-			exit('id inválido');
+			$this->set('pessoa','');
 		}
 	}
 	
