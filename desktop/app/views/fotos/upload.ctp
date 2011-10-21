@@ -1,7 +1,7 @@
 <?php 
-echo $html->css('imgareaselect-animated.css');
+echo $html->css('jquery.jcrop');
 if(isset($javascript)){
-	echo $javascript->link('jquery.imgareaselect.js');
+	echo $javascript->link('jquery.jcrop.js');
 }
 $width = 150;
 $height = 150;
