@@ -239,10 +239,16 @@ $(document).ready(function(){
 				<td style="text-align:center"><? echo $time->format('d/m/Y',$l['data']); ?></td>
 				<td><? echo $this->Number->format($l['valor'],array('before'=>'R$ ','decimals'=>',','thousands'=>'.','places'=>2)); ?></td>
 			</tr>
-				<?
+			<?
 				}
 			} else {
-				echo 'N&atilde;o possui dizimos registrados';
+			?>
+			<tr>
+				<td>
+				N&atilde;o possui dizimos registrados
+				</td>
+			</tr>
+			<?
 			}
 			?>
 		</table>
