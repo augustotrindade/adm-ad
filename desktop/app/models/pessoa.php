@@ -2,6 +2,7 @@
 class Pessoa extends AppModel {
 	
 	var $name = 'Pessoa';
+	var $displayField = 'nome';
 	var $validate = array(
 		'nome' => array('rule'=>'notempty'),
 		'sexo' => array('rule'=>'notempty'),
@@ -14,7 +15,8 @@ class Pessoa extends AppModel {
 		'Lancamento'=>array(
 			'className'=>'Lancamento',
 			'foreignKey'=>'dizimista_id',
-			'limit' => '10'
+			'limit' => '10',
+			'order' => 'Lancamento.data DESC'
 		)
 	);
 	var $hasOne = array(
