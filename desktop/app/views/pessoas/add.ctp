@@ -216,17 +216,36 @@ $(document).ready(function(){
 		</table>
 	</div>
 	<div id="dizimo">
-		<?
-		//ABA OCORRENCIAS
-		if(isset($this->data['Lancamento']) && count($this->data['Lancamento'])>0){
-			foreach($this->data['Lancamento'] as $l){
-				echo $o['data'].' --> ';
-				echo $o['valor'];
+		<table>
+			<?
+			//ABA OCORRENCIAS
+			if(isset($this->data['Lancamento']) && count($this->data['Lancamento'])>0){
+			?>
+			<tr>
+				<th>#</th>
+				<th>Data</th>
+				<th>Valor</th>
+			</tr>
+			<?
+				foreach($this->data['Lancamento'] as $l){
+					$i = 0;
+					$class = null;
+					if ($i++ % 2 != 0) {
+						$class = ' class="altrow"';
+					}
+				?>
+			<tr <?php echo $class;?>>
+				<td><? echo $i; ?></td>
+				<td style="text-align:center"><? echo $time->format('d/m/Y',$l['data']); ?></td>
+				<td><? echo $this->Number->format($l['valor'],array('before'=>'R$ ','decimals'=>',','thousands'=>'.','places'=>2)); ?></td>
+			</tr>
+				<?
+				}
+			} else {
+				echo 'N&atilde;o possui dizimos registrados';
 			}
-		} else {
-			echo 'N&atilde;o possui dizimos registrados';
-		}
-		?>
+			?>
+		</table>
 	</div>
 </div>
 <br>
