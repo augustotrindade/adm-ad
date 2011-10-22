@@ -26,7 +26,6 @@ class FotosController extends AppController {
 	}
 	
 	function finalizar(){
-	pr($this->data);
 		$caminho = $this->JqImgcrop->cropImage(150, $this->data['Foto']['x1'], $this->data['Foto']['y1'], $this->data['Foto']['x2'], $this->data['Foto']['y2'], $this->data['Foto']['w'], $this->data['Foto']['h'], $this->data['Foto']['imagePath'], $this->data['Foto']['imagePath']) ;
 		$img = $_SERVER['HTTP_REFERER'].'/../../img/upload/'.basename($caminho);
 		$foto = '../../img/upload/'.basename($caminho);
