@@ -8,6 +8,9 @@ class Motivo extends AppModel {
 	);
 	
 	function beforeSave() {
+		if (isset($this->data['Motivo']['nome'])) {
+			$this->data['Motivo']['nome'] = trim(strtoupper(strtr($this->data['Motivo']['nome'],'ηγαβυσικν','ΗΓΑΒΤΣΙΚΝ')));
+		}
 		return true;
 	}
 }
