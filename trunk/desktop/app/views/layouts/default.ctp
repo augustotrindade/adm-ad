@@ -88,6 +88,7 @@
 						<li class="all"><? echo $html->link('Status',array('controller'=>'status','action'=>'index')) ?></li>
 						<li class="all"><? echo $html->link('Grau de Instrução',array('controller'=>'grauinstrucoes','action'=>'index')) ?></li>
 						<li class="all"><? echo $html->link('Plano de Contas',array('controller'=>'planocontas','action'=>'index')) ?></li>
+						<li class="all"><? echo $html->link('Motivos',array('controller'=>'motivos','action'=>'index')) ?></li>
 					</ul>
 				</li>
 				<li class="logout"><? echo $html->link('SAIR', array('controller'=>'usuarios','action'=>'logout'))?></li>
