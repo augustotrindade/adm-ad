@@ -32,6 +32,14 @@ class Pessoa extends AppModel {
 		'Cidadenaturalidade'=>array(
 			'className'=>'Cidade',
 			'foreignKey'=>'cidadenaturalidade_id'
+		),
+		'Motivoentrada'=>array(
+			'className'=>'Motivo',
+			'foreignKey'=>'motivoentrada_id'
+		),
+		'Motivosaida'=>array(
+			'className'=>'Motivo',
+			'foreignKey'=>'motivosaida_id'
 		)
 	);
 	var $hasAndBelongsToMany = array(
