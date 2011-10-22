@@ -105,7 +105,7 @@ INSERT INTO grauinstrucoes (id, nome, created, updated) VALUES
 
 DROP TABLE IF EXISTS lancamentos;
 CREATE TABLE lancamentos (
-  id int(11) NOT NULL,
+  id int(11) NOT NULL auto_increment,
   planoconta_id int(11) default NULL,
   folhatalao_id int(11) default NULL,
   dizimista_id int(11) default NULL,

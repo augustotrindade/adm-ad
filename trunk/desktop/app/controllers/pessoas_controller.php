@@ -3,7 +3,7 @@ class PessoasController extends AppController {
 	
 	var $name = 'Pessoas';
 	var $helpers = array('Html','Form','Javascript','Xml','Ajax','Time','Cropimage','Number');
-	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil','Tipopessoa','Status','Filho','Tipocontato','Contato','Grauinstrucao');
+	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil','Tipopessoa','Status','Filho','Tipocontato','Contato','Grauinstrucao','Motivo');
 	var $components = array( 'RequestHandler','Upload','JqImgcrop' );
 	var $destino = 'fotos_cartao/';
 	
@@ -23,6 +23,8 @@ class PessoasController extends AppController {
 		$this->set('tipocontatos',$this->Tipocontato->find('list'));
 		$this->set('grauinstrucoes',$this->Grauinstrucao->find('list'));
 		$this->set('sexo',$this->Pessoa->getSexos());
+		$this->set('motivoentradas',$this->Motivo->find('list'));
+		$this->set('motivosaidas',$this->Motivo->find('list'));
 		$tipopessoas = $this->Pessoa->Tipopessoa->find('list');
 		$this->set(compact('tipopessoas'));
 	}
@@ -45,6 +47,8 @@ class PessoasController extends AppController {
 		$this->set('estadocivis',$this->Estadocivil->find('list'));
 		$this->set('status',$this->Status->find('list'));
 		$this->set('tipocontatos',$this->Tipocontato->find('list'));
+		$this->set('motivoentradas',$this->Motivo->find('list'));
+		$this->set('motivosaidas',$this->Motivo->find('list'));
 		$tipopessoas = $this->Pessoa->Tipopessoa->find('list');
 		$this->set(compact('tipopessoas'));
 		$this->render('add');

@@ -42,7 +42,7 @@ $(document).ready(function(){
 		echo $form->input('foto', array('type'=>'hidden','id'=>'foto')); 
 		echo $form->input('upload', array('type'=>'hidden','id'=>'upload','value'=>'false')); 
 		?>
-		<div style="float: left; padding-right: 10px;" onclick="window.open('<?php echo $html->url(array('controller'=>'fotos','action'=>'index','id'=>$this->data['Pessoa']['id'])); ?>','page','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=786,height=490');return false;">
+		<div style="float: left; padding-right: 10px;" onclick="window.open('<?php echo $html->url(array('controller'=>'fotos','action'=>'index','id'=>$this->data['Pessoa']['id'])); ?>','page','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=786,height=500');return false;">
 			<?php 
 			echo $html->image('/fotos_cartao/'.($this->data['Pessoa']['foto'] ? $this->data['Pessoa']['foto'] : 'sem_foto.gif'),array('width'=>'100px','border'=>'1px','id'=>'imgFoto')); 
 			?>
@@ -160,7 +160,9 @@ $(document).ready(function(){
 	<div id="ecleticos">
 		<?
 		//ABA ECLETICOS
-		echo $form->input('congregacao_id',array('label'=>'Congregação','empty'=>'.:: SELECIONE ::.'))
+		echo $form->input('congregacao_id',array('label'=>'Congregação','empty'=>'.:: SELECIONE ::.'));
+		echo $form->input('data_batismo_agua',array('size'=>'15','maxlength'=>'10','label'=>'Dt Batismo Águas'));
+		echo $form->input('data_batismo_espirito',array('size'=>'15','maxlength'=>'10','label'=>'Dt Batismo Espir'));
 		?>
 		<fieldset>
 			<legend>Tipo Pessoa</legend>
@@ -180,6 +182,12 @@ $(document).ready(function(){
 			}
 			?>
 		</fieldset>
+		<?
+		echo $form->input('motivoentrada_id',array('empty'=>'.:: SELECIONE ::.','label'=>'Motivo Entrada'));
+		echo $form->input('data_entrada',array('size'=>'15','maxlength'=>'10'));
+		echo $form->input('motivosaida_id',array('empty'=>'.:: SELECIONE ::.','label'=>'Motivo Entrada'));
+		echo $form->input('data_saida',array('size'=>'15','maxlength'=>'10'));
+		?>
 	</div>
 	<div id="ocorrencias">
 		<table>
