@@ -1,9 +1,9 @@
-<div class="motivos index">
+<div class="classes index">
 <?php $session->flash(); ?>
-<? echo $form->create('Motivo',array('action'=>'index')); ?>
-		<?php echo $form->input('nome', array('size'=>'40','maxlength'=>'255')); ?>
+<? echo $form->create('Classe',array('action'=>'index')); ?>
+		<?php echo $form->input('nome', array('size'=>'40','maxlength'=>'30')); ?>
 		<?php echo $form->submit('Pesquisar', array('div'=>false)); ?>
-		<?php echo $form->submit('Novo', array('type'=>'button','div'=>false,'onclick'=>'javascript:window.location.href="'.$html->url(array('controller'=>'motivos','action'=>'add')).'"')); ?>
+		<?php echo $form->submit('Novo', array('type'=>'button','div'=>false,'onclick'=>'javascript:window.location.href="'.$html->url(array('controller'=>'classes','action'=>'add')).'"')); ?>
 <? echo $form->end() ?>
 <?= $this->Paginator->options(array('url' => array_merge($array, $this->passedArgs)));?>
 <table cellpadding="0" cellspacing="0">
@@ -14,7 +14,7 @@
 		</tr>
 		<?php
 		$i = 0;
-		foreach ($motivos as $motivo):
+		foreach ($classes as $classe):
 			$class = null;
 			if ($i++ % 2 != 0) {
 				$class = ' class="altrow"';
@@ -22,14 +22,14 @@
 		?>
 			<tr <?php echo $class;?>>
 				<td>
-					<?php echo $motivo['Motivo']['id']; ?>
+					<?php echo $classe['Classe']['id']; ?>
 				</td>
 				<td>
-					<?php echo $motivo['Motivo']['nome']; ?>
+					<?php echo $classe['Classe']['nome']; ?>
 				</td>
 				<td class="actions">
-					<?php echo $html->link(__('Editar', true), array('action'=>'edit', $motivo['Motivo']['id'])); ?>
-					<?php echo $html->link(__('Excluir', true), array('action'=>'delete', $motivo['Motivo']['id']), null, sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $motivo['Motivo']['id'])); ?>
+					<?php echo $html->link(__('Editar', true), array('action'=>'edit', $classe['Classe']['id'])); ?>
+					<?php echo $html->link(__('Excluir', true), array('action'=>'delete', $classe['Classe']['id']), null, sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $classe['Classe']['id'])); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>

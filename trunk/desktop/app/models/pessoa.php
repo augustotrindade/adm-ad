@@ -85,7 +85,7 @@ class Pessoa extends AppModel {
 	}
 	
 	function getSexos(){
-		$sexos = array('M'=>'Masculino','F'=>'Femenino');
+		$sexos = array('M'=>'Masculino','F'=>'Feminino');
 		return $sexos;
 	}
 }

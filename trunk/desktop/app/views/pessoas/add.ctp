@@ -109,7 +109,7 @@ $(document).ready(function(){
 					<tr <?php echo $class;?>>
 						<td><?php echo ($i+1); echo $form->input('Filho.'.$i.'.id'); ?></td>
 						<td><?php echo $form->input('Filho.'.$i.'.nome',array('div'=>'false','label'=>false)); ?></td>
-						<td><?php echo $form->input('Filho.'.$i.'.sexo',array('div'=>'false','label'=>false)); ?></td>
+						<td><?php echo $form->input('Filho.'.$i.'.sexo',array('div'=>'false','label'=>false,'options'=>$sexo,'empty'=>'.:: SELECIONE ::.')); ?></td>
 						<td><?php echo $form->input('Filho.'.$i.'.data_nascimento',array('div'=>'false','label'=>false,'dateFormat' => 'DMY','minYear' => 1900, 'maxYear' => date('Y'),'separator' =>' / ')); ?></td>
 						<td><?php echo $form->input('Filho.'.$i.'.excluir',array('div'=>false,'label'=>false,'type'=>'checkbox')); ?></td>
 					</tr>
