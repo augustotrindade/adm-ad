@@ -76,7 +76,10 @@
 					</ul>
 				</li>
 				<li class="escolaBiblica"><a href="#">ESCOLA BÍBLICA</a>
-					
+					<ul>
+						<li class="all"><? echo $html->link('Classes',array('controller'=>'classes','action'=>'index')) ?></li>
+						<li class="all"><? echo $html->link('Turmas',array('controller'=>'turmas','action'=>'index')) ?></li>
+					</ul>
 				</li>
 				<li class="settings"><a href="#">CONFIGURA&Ccedil;&Otilde;ES</a>
 					<ul>
