@@ -1,3 +1,33 @@
+DROP TABLE IF EXISTS classes;
+CREATE TABLE IF NOT EXISTS classes (
+  id int(11) NOT NULL auto_increment,
+  nome varchar(30) NOT NULL,
+  created datetime default NULL,
+  updated datetime default NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS turmas;
+CREATE TABLE IF NOT EXISTS turmas (
+  id int(11) NOT NULL auto_increment,
+  nome varchar(50) NOT NULL,
+  classe_id int(11) NOT NULL,
+  congregacao_id int(11) NOT NULL,
+  cretated datetime default NULL,
+  updated datetime default NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS matriculados;
+CREATE TABLE IF NOT EXISTS matriculados (
+  id int(11) NOT NULL auto_increment,
+  turma_id int(11) NOT NULL,
+  pessoa_id int(11) NOT NULL,
+  created datetime default NULL,
+  updated datetime default NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
 DROP TABLE IF EXISTS cidades;
 CREATE TABLE cidades (
   id int(11) NOT NULL auto_increment,
