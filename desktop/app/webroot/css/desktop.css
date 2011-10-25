@@ -187,8 +187,8 @@ td.actions a {
 div.paging {
 	background: #fff;
 	color: #ccc;
-	margin-bottom: 2em;
-	text-align: center;
+	margin: 0 auto;
+	width: -moz-max-content;
 }
 
 div.paging div.disabled {
@@ -197,15 +197,27 @@ div.paging div.disabled {
 }
 
 div.paging span {
-	
+	background-color: #E9E9E9;
+    background-image: -moz-linear-gradient(center top , #FFFFFF, #E9E9E9);
+    border: 1px solid #AFAFAF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 1px 1px 1px #DDDDDD;
+    color: #717171;
+    display: block;
+    font-weight: bold;
+    padding: 5px 8px;
+    text-decoration: none;
+	float:left;
 }
 
 div.paging span.current {
-	color: #000;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #CCCCCC;
+    box-shadow: 0 0 5px #CCCCCC inset;
 }
 
 div.paging span a {
-	
+	text-decoration:none;
 }
 
 .paginate {

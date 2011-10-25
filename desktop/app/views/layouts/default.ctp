@@ -17,8 +17,7 @@
 		echo $html->script('jquery.ui.core');
 		echo $html->script('jquery.ui.widget');
 		echo $html->script('jquery.ui.tabs');
-		
-		?>
+	?>
 </head>
 <body>
 <div id="wrapper">
@@ -92,6 +91,8 @@
 						<li class="all"><? echo $html->link('Grau de Instrução',array('controller'=>'grauinstrucoes','action'=>'index')) ?></li>
 						<li class="all"><? echo $html->link('Plano de Contas',array('controller'=>'planocontas','action'=>'index')) ?></li>
 						<li class="all"><? echo $html->link('Motivos',array('controller'=>'motivos','action'=>'index')) ?></li>
+						<li class="all"><? echo $html->link('Estado Civis',array('controller'=>'estadocivis','action'=>'index')) ?></li>
+						<li class="all"><? echo $html->link('Tipo Contatos',array('controller'=>'tipocontatos','action'=>'index')) ?></li>
 					</ul>
 				</li>
 				<li class="logout"><? echo $html->link('SAIR', array('controller'=>'usuarios','action'=>'logout'))?></li>

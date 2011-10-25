@@ -31,7 +31,7 @@ class PessoasController extends AppController {
 	
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Cidade inválido', true));
+			$this->Session->setFlash(__('Pessoa inválido', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if (empty($this->data)) {

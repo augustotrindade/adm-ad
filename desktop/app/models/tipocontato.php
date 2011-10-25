@@ -8,6 +8,9 @@ class Tipocontato extends AppModel {
 	);
 	
 	function beforeSave() {
+		if (isset($this->data['Tipocontato']['nome'])) {
+			$this->data['Tipocontato']['nome'] = trim(strtoupper(strtr($this->data['Tipocontato']['nome'],'���������','���������')));
+		}
 		return true;
 	}
 }
