@@ -15,6 +15,9 @@ class Status extends AppModel {
 	);
 	
 	function beforeSave() {
+		if (isset($this->data['Status']['nome'])) {
+			$this->data['Status']['nome'] = trim(strtoupper(strtr($this->data['Status']['nome'],'çãáâõóéêí','ÇÃÁÂÔÓÉÊÍ')));
+		}
 		return true;
 	}
 }

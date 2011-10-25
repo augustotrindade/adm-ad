@@ -63,12 +63,14 @@
 				</li>
 				<li class="tesouraria"><a href="#">TESOURARIA</a>
 					<ul>
+						<li class="show subsubl"><a href="#">Cadastros</a>
+							<ul>
+								<li class="all"><? echo $html->link('Talões',array('controller'=>'taloes','action'=>'index')) ?></li>
+							</ul>
+						</li>
 						<li class="show subsubl"><a href="#">Entradas</a>
 							<ul>
-								<li class="articles"><a href="#">Last created</a></li>
-								<li class="articles"><a href="#">First created</a></li>
-								<li class="articles"><a href="#">All</a></li>
-								<li class="articles"><a href="#">None</a></li>
+								<li class="all"><? echo $html->link('All',array('controller'=>'nada','action'=>'index')) ?></li>
 							</ul>
 						</li>
 						<li class="articles"><a href="#">Sa&iacute;das</a></li>
