@@ -57,7 +57,7 @@ $(document).ready(function(){
 		<fieldset>
 			<legend>Naturalidade</legend>
 			<?
-			echo $form->input('data_nascimento', array('dateFormat' => 'DMY','minYear' => 1900, 'maxYear' => date('Y'),'separator' =>' / '));
+			echo $form->input('data_nascimento', array('empty'=>'--','dateFormat' => 'DMY','minYear' => 1900, 'maxYear' => date('Y'),'separator' =>' / '));
 			echo $form->input('estadonaturalidade_id', array('empty'=>'.:: SELECIONE ::.','label'=>'Estado','class'=>'uf'));
 			echo $form->input('cidadenaturalidade_id', array('empty'=>'.:: SELECIONE ::.','label'=>'Cidade','class'=>'PessoaEstadonaturalidadeId'));
 			?>
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		<?
 			//RG
 			echo $form->input('rg_numero',array('size'=>'20','maxlength'=>'15','label'=>'Numero'));
-			echo $form->input('rg_emissao',array('dateFormat' => 'DMY','minYear' => 1900, 'maxYear' => date('Y'),'separator' =>' / ','label'=>'Emissão'));
+			echo $form->input('rg_emissao',array('empty'=>'--','dateFormat' => 'DMY','minYear' => 1900, 'maxYear' => date('Y'),'separator' =>' / ','label'=>'Emissão'));
 			echo $form->input('rg_expedidor',array('size'=>'20','maxlength'=>'15','label'=>'Expeditor'));
 		?>
 		</fieldset>
@@ -110,7 +110,7 @@ $(document).ready(function(){
 						<td><?php echo ($i+1); echo $form->input('Filho.'.$i.'.id'); ?></td>
 						<td><?php echo $form->input('Filho.'.$i.'.nome',array('div'=>'false','label'=>false)); ?></td>
 						<td><?php echo $form->input('Filho.'.$i.'.sexo',array('div'=>'false','label'=>false,'options'=>$sexo,'empty'=>'.:: SELECIONE ::.')); ?></td>
-						<td><?php echo $form->input('Filho.'.$i.'.data_nascimento',array('div'=>'false','label'=>false,'dateFormat' => 'DMY','minYear' => 1900, 'maxYear' => date('Y'),'separator' =>' / ')); ?></td>
+						<td><?php echo $form->input('Filho.'.$i.'.data_nascimento',array('empty'=>'--','div'=>'false','label'=>false,'dateFormat' => 'DMY','minYear' => 1900, 'maxYear' => date('Y'),'separator' =>' / ')); ?></td>
 						<td><?php echo $form->input('Filho.'.$i.'.excluir',array('div'=>false,'label'=>false,'type'=>'checkbox')); ?></td>
 					</tr>
 					<?
