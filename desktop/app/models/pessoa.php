@@ -73,10 +73,10 @@ class Pessoa extends AppModel {
 	function afterFind($resultado){
 		if(count($resultado)>0){
 			foreach ($resultado as $k => $v) {
-				if(isset($v['Cidadeendereco'])){
+				if(isset($v['Cidadeendereco']) && is_array($v['Cidadeendereco'])){
 					$resultado[$k]['Pessoa']['estadoendereco_id'] = $v['Cidadeendereco']['uf'];
 				}
-				if(isset($v['Cidadenaturalidade'])){
+				if(isset($v['Cidadenaturalidade']) && is_array($v['Cidadenaturalidade'])){
 					$resultado[$k]['Pessoa']['estadonaturalidade_id'] = $v['Cidadenaturalidade']['uf'];
 				}
 			}

@@ -239,11 +239,7 @@ form div.error {
 }
 
 /* Campos formulario */
-input[disabled],input[readonly],select[disabled],select[readonly],checkbox[disabled],checkbox[readonly],textarea[disabled],textarea[readonly]
-	{
-	background-color: #dcdcdc;
-}
-
+button,
 input[type=submit],input[type=button] {
 	border: #d7d5d6 1px solid;
 	width: 120px;
@@ -269,6 +265,10 @@ textarea {
 	background-color: white;
 	color: black;
 	font-size: 10pt
+}
+input[disabled],input[readonly],select[disabled],select[readonly],checkbox[disabled],checkbox[readonly],textarea[disabled],textarea[readonly]{
+	background-color: #dcdcdc;
+	border:1px solid #7A7A7A;
 }
 div .input {
 	padding: 2px;	

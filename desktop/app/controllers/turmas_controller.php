@@ -3,7 +3,7 @@ class TurmasController extends AppController {
 
 	var $name = 'Turmas';
 	var $helpers = array('Html','Form','Javascript','Ajax','Jax');
-	var $uses = array('Turma','Classe','Congregacao');
+	var $uses = array('Turma','Classe','Congregacao','Matriculado');
 	
 	function index() {
 		$array = $this->montarFiltro();
@@ -19,6 +19,7 @@ class TurmasController extends AppController {
 	}
 	
 	function edit($id = null) {
+		$this->Turma->recursive = 2;
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Turma inválido', true));
 			$this->redirect(array('action'=>'index'));
@@ -34,10 +35,11 @@ class TurmasController extends AppController {
 	function salvar($id = null){
 		$this->set('classes',$this->Classe->find('list'));
 		$this->set('congregacoes',$this->Congregacao->find('list'));
+		pr($this->data);
 		if (!$id) {
 			if (!empty($this->data)) {
 			$this->Turma->create();
-				if ($this->Turma->save($this->data)) {
+				if ($this->Turma->saveAll($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));
 					$this->redirect(array('action'=>'index'));
 				} else {
@@ -49,7 +51,7 @@ class TurmasController extends AppController {
 			}
 		} else {
 			if (!empty($this->data)) {
-				if ($this->Turma->save($this->data)) {
+				if ($this->Turma->saveAll($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));
 					$this->redirect(array('action'=>'index'));
 				} else {
@@ -68,6 +70,27 @@ class TurmasController extends AppController {
 		if ($this->Turma->del($id)) {
 			$this->Session->setFlash(__('Turma deleted', true));
 			$this->redirect(array('action'=>'index'));
+		}
+	}
+	
+	function validar_matriculados(){
+		if(count($this->data['Matriculado'])>0){
+			foreach($this->data['Matriculado'] as $k => $matriculado){
+				$this->Filho->data = array('Matriculado'=>$matriculado);
+				if(!$this->Filho->validates()){
+					unset($this->data['Matriculado'][$k]);
+				} else {
+					if(isset($matriculado['excluir']) && $matriculado['excluir']==1){
+						if($matriculado['id']){
+							$this->Filho->delete($matriculado['id']);
+						} 
+						unset($this->data['Matriculado'][$k]);
+					}
+				}
+			}
+		}
+		if(count($this->data['Matriculado'])==0){
+			unset($this->data['Matriculado']);
 		}
 	}
 }
