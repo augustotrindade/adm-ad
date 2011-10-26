@@ -1,4 +1,4 @@
-<?php $session->flash(); ?>
+<?php echo $this->Session->flash(); ?>
 <div class="taloes form">
 <?php 
 	echo $form->create('Talao',array('action'=>'salvar'));

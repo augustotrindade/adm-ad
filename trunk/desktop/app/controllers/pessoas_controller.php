@@ -163,5 +163,22 @@ class PessoasController extends AppController {
 			unset($this->data['Contato']);
 		}
 	}
+	
+	function listaPessoa(){
+		$update = array();
+		if(isset($this->params['named']) || count($this->params['named'])>0){
+			foreach ($this->params['named'] as $k => $v){
+				if(substr($k,0,7)=="update_"){
+					$update[str_replace('update_','',$k)]=$v;
+				}
+			}
+		}
+		$this->layout = 'popup';
+		$array = $this->montarFiltro();
+		$array = array_merge(array('Status.ativo'=>true),$array);
+		$this->set('array',$array);
+		$this->set('update',$update);
+		$this->set('pessoas', $this->paginate('Pessoa',$this->definirFiltroLike($array)));
+	}
 }
 ?>

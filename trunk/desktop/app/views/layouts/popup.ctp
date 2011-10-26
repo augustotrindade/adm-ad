@@ -13,11 +13,6 @@ if (isset($javascript)) {
 	echo $javascript->link('jquery'); 
 }
 ?>
-<style>
-body {
-	background: #ffffff;
-}
-</style>
 </head>
 <body>
 <?

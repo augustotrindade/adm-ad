@@ -45,6 +45,9 @@ class AppController extends Controller {
 				unset($params['page']);
 				if(count($params)>0){
 					foreach ($params as $k => $v){
+						if(substr($k,0,7)=="update_") {
+							continue;
+						}
 						$retorno[$k]=$v;
 						$aux = explode('.',$k);
 						$this->data[$aux[0]][$aux[1]]=$v;
