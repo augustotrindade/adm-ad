@@ -35,10 +35,10 @@ class TurmasController extends AppController {
 	function salvar($id = null){
 		$this->set('classes',$this->Classe->find('list'));
 		$this->set('congregacoes',$this->Congregacao->find('list'));
-		pr($this->data);
+		$this->validar_matriculados();
 		if (!$id) {
 			if (!empty($this->data)) {
-			$this->Turma->create();
+				$this->Turma->create();
 				if ($this->Turma->saveAll($this->data)) {
 					$this->Session->setFlash(__('Salvo com sucesso!', true));
 					$this->redirect(array('action'=>'index'));
@@ -74,19 +74,28 @@ class TurmasController extends AppController {
 	}
 	
 	function validar_matriculados(){
+		$pessoa_ids = array();
 		if(count($this->data['Matriculado'])>0){
 			foreach($this->data['Matriculado'] as $k => $matriculado){
-				$this->Filho->data = array('Matriculado'=>$matriculado);
-				if(!$this->Filho->validates()){
+				if(in_array($matriculado['pessoa_id'],$pessoa_ids) && $matriculado['excluir']==0){
+					if($matriculado['id']){
+						$this->Matriculado->delete($matriculado['id']);
+					} 
+					unset($this->data['Matriculado'][$k]);
+					continue;
+				}
+				$this->Matriculado->data = array('Matriculado'=>$matriculado);
+				if(!$this->Matriculado->validates()){
 					unset($this->data['Matriculado'][$k]);
 				} else {
 					if(isset($matriculado['excluir']) && $matriculado['excluir']==1){
 						if($matriculado['id']){
-							$this->Filho->delete($matriculado['id']);
+							$this->Matriculado->delete($matriculado['id']);
 						} 
 						unset($this->data['Matriculado'][$k]);
 					}
 				}
+				$pessoa_ids[]=$matriculado['pessoa_id'];
 			}
 		}
 		if(count($this->data['Matriculado'])==0){
