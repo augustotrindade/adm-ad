@@ -3,7 +3,6 @@ class Turma extends AppModel {
 	
 	var $name = 'Turma';
 	var $displayField = 'nome';
-	//var $recursive = 2;
 	var $validate = array(
 		'nome' => array('rule'=>'notempty'),
 		'classe_id' => array('rule'=>'notempty'),

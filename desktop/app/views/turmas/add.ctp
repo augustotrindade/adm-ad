@@ -1,4 +1,4 @@
-<?php $session->flash(); ?>
+<?php echo $this->Session->flash(); ?>
 <div class="turmas form">
 <?php 
 	echo $form->create('Turma',array('action'=>'salvar'));

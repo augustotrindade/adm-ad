@@ -3,8 +3,7 @@ class Matriculado extends AppModel {
 
 	var $name = 'Matriculado';
 	var $validate = array(
-		'turma_id' => array('notempty'),
-		'pessoa_id' => array('notempty')
+		'pessoa_id' => 'notempty'
 	);
 	var $belongsTo = array(
 		'Turma',
