@@ -4,7 +4,7 @@ class PessoasController extends AppController {
 	var $name = 'Pessoas';
 	var $helpers = array('Html','Form','Javascript','Xml','Ajax','Time','Cropimage','Number');
 	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil','Tipopessoa','Status','Filho','Tipocontato','Contato','Grauinstrucao','Motivo');
-	var $components = array( 'RequestHandler','Upload','JqImgcrop' );
+	var $components = array( 'RequestHandler','Upload','JqImgcrop','Acl' );
 	var $destino = 'fotos_cartao/';
 	
 	function index(){
@@ -179,6 +179,23 @@ class PessoasController extends AppController {
 		$this->set('array',$array);
 		$this->set('update',$update);
 		$this->set('pessoas', $this->paginate('Pessoa',$this->definirFiltroLike($array)));
+	}
+	
+	function permicao(){
+		$aro = new Aro();
+		$users = array(
+			0 => array(
+				'alias'=>'admin',
+				'parent_id'=>1,
+				'model'=>'User',
+				'foreign_key'=>1
+			)
+		);
+		foreach ($users as $data) {
+			$aro->create();
+			$aro->save($data);
+		}
+		exit();
 	}
 }
 ?>

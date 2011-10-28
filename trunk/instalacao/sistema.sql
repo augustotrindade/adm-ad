@@ -1,3 +1,9 @@
+drop table if exists acos;
+
+drop table if exists aros;
+
+drop table if exists aros_acos;
+
 drop table if exists campos;
 
 drop table if exists cidades;
@@ -19,6 +25,8 @@ drop table if exists grauinstrucoes;
 drop table if exists lancamentos;
 
 drop table if exists matriculados;
+
+drop table if exists menus;
 
 drop table if exists modelocartoes;
 
@@ -45,6 +53,57 @@ drop table if exists tipopessoas;
 drop table if exists turmas;
 
 drop table if exists usuarios;
+
+/*==============================================================*/
+/* Table: acos                                                  */
+/*==============================================================*/
+create table acos
+(
+   id                   int not null auto_increment,
+   parent_id            int,
+   model                varchar(255),
+   foreign_key          int,
+   alias                varchar(255),
+   lft                  int,
+   rght                 int,
+   primary key (id)
+);
+
+/*==============================================================*/
+/* Table: aros                                                  */
+/*==============================================================*/
+create table aros
+(
+   id                   int not null auto_increment,
+   parent_id            int,
+   model                varchar(255),
+   foreign_key          int,
+   alias                varchar(255),
+   lft                  int,
+   rght                 int,
+   primary key (id)
+)
+auto_increment = 5;
+
+insert into aros values (1, null, null, null, 'administrador', 1, 2);
+insert into aros values (2, null, null, null, 'secretario', 3, 4);
+insert into aros values (3, null, null, null, 'tesoureiro', 5, 6);
+insert into aros values (4, null, null, null, 'escoladominical', 7, 8);
+
+/*==============================================================*/
+/* Table: aros_acos                                             */
+/*==============================================================*/
+create table aros_acos
+(
+   id                   int not null auto_increment,
+   aro_id               int,
+   aco_id               int,
+   _create              varchar(2) default '0',
+   _read                varchar(2) default '0',
+   _update              varchar(2) default '0',
+   _delete              varchar(2) default '0',
+   primary key (id)
+);
 
 /*==============================================================*/
 /* Table: campos                                                */
@@ -198,6 +257,26 @@ create table matriculados
    id                   int not null auto_increment,
    turma_id             int not null,
    pessoa_id            int not null,
+   created              datetime,
+   updated              datetime,
+   primary key (id)
+);
+
+/*==============================================================*/
+/* Table: menus                                                 */
+/*==============================================================*/
+create table menus
+(
+   id                   int not null auto_increment,
+   parent_id            int,
+   lft                  int,
+   rght                 int,
+   nome                 varchar(100) not null,
+   class_css            varchar(100),
+   style_css            varchar(255),
+   controller           varchar(30),
+   action               varchar(30),
+   url                  varchar(100),
    created              datetime,
    updated              datetime,
    primary key (id)
