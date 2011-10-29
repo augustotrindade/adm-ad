@@ -2,7 +2,7 @@
 class Menu extends AppModel {
 	var $name = 'Menu';
 	var $displayField = "nome";
-	var $actsAs = array('Tree');
+	var $actsAs = array('GroupTree');
 	var $validate = array(
 		'nome'=>'notempty'
 	);
