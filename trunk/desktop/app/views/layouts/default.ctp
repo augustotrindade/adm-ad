@@ -38,72 +38,15 @@
 	<div id="nav">
 	
 		<div class="menu4">
-			<ul>
-				<li class="home"><? echo $html->link('HOME', array('controller'=>'principal','action'=>'index'))?></li>
-				<li class="articles"><a href="#">SECRETARIA</a>
-					<ul>
-						<li class="show subsubl"><a href="#">Cadastros</a>
-							<ul>
-								<li class="user"><? echo $html->link('Pessoa', array('controller'=>'pessoas','action'=>'index'))?></li>
-							</ul>
-						</li>
-						<li class="show subsubl"><a href="#">Controle</a>
-							<ul>
-								<li class="printer"><a href="#">Imprimir Cart&atilde;o</a></li>
-								<li class="printer"><a href="#">Emitir Cartas</a></li>
-							</ul>
-						</li>
-						<li class="show subsubl"><a href="#">Relat&oacute;rios</a>
-							<ul>
-								<li class="articles"><a href="#">Lista de Membros</a></li>
-								<li class="articles"><a href="#">Lista de Aniversariantes</a></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="tesouraria"><a href="#">TESOURARIA</a>
-					<ul>
-						<li class="show subsubl"><a href="#">Cadastros</a>
-							<ul>
-								<li class="all"><? echo $html->link('Talões',array('controller'=>'taloes','action'=>'index')) ?></li>
-							</ul>
-						</li>
-						<li class="show subsubl"><a href="#">Entradas</a>
-							<ul>
-								<li class="all"><? echo $html->link('All',array('controller'=>'nada','action'=>'index')) ?></li>
-							</ul>
-						</li>
-						<li class="articles"><a href="#">Sa&iacute;das</a></li>
-					</ul>
-				</li>
-				<li class="escolaBiblica"><a href="#">ESCOLA BÍBLICA</a>
-					<ul>
-						<li class="all"><? echo $html->link('Classes',array('controller'=>'classes','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Turmas',array('controller'=>'turmas','action'=>'index')) ?></li>
-					</ul>
-				</li>
-				<li class="settings"><a href="#">CONFIGURA&Ccedil;&Otilde;ES</a>
-					<ul>
-						<li class="all"><? echo $html->link('Cidades',array('controller'=>'cidades','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Profissões',array('controller'=>'profissoes','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Congregações',array('controller'=>'congregacoes','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Usuarios',array('controller'=>'usuarios','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Tipo Pessoas',array('controller'=>'tipopessoas','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Status',array('controller'=>'status','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Grau de Instrução',array('controller'=>'grauinstrucoes','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Plano de Contas',array('controller'=>'planocontas','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Motivos',array('controller'=>'motivos','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Estado Civis',array('controller'=>'estadocivis','action'=>'index')) ?></li>
-						<li class="all"><? echo $html->link('Tipo Contatos',array('controller'=>'tipocontatos','action'=>'index')) ?></li>
-					</ul>
-				</li>
-				<li class="logout"><? echo $html->link('SAIR', array('controller'=>'usuarios','action'=>'logout'))?></li>
-			</ul>
+			<?php 
+			if(isset($menu_principal) && array_key_exists(0, $menu_principal)) {
+			    echo $menuarvore->galhos($menu_principal);
+			} 
+			?>
 		</div>
 		
 	</div> <!-- end #nav -->
 	<div id="content">
-	
 	<?php 
 		echo $this->Session->flash();    
 		echo $this->Session->flash('auth');

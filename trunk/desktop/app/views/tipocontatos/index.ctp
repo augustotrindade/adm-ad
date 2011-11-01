@@ -1,4 +1,4 @@
-<div class="motivos index">
+<div class="tipocontatos index">
 <?php $session->flash(); ?>
 <? echo $form->create('Tipocontato',array('action'=>'index')); ?>
 		<?php echo $form->input('nome', array('size'=>'40','maxlength'=>'255')); ?>

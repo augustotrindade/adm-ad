@@ -2,10 +2,10 @@
 class AppController extends Controller {
 	var $paginate = array('limit' => 50);
 	var $components = array('Auth','Cookie','Session');
-	var $uses = array('Congregacao');
+	var $helpers = array('Form','Session','Html','Javascript','Menuarvore');
+	var $uses = array('Congregacao','Menu');
 
 	function beforeFilter() {
-		
 		$this->Auth->userModel = 'Usuario';
 		$this->Auth->fields = array(
 			'username' => 'login', 
@@ -19,6 +19,23 @@ class AppController extends Controller {
 		}else {
 			$this->Session->write('Usuario.congregacao_nome','Admin');
 		}
+		
+		$menu_principal = $this->filhos($this->Menu->children(null,true));
+		$this->set('menu_principal',$menu_principal);
+	}
+	
+	function filhos($lista){
+		if(count($lista)>0){
+			foreach ($lista as $k => $v){
+				if($this->Menu->childCount($v['Menu']['id'],true)>0){
+					$filhos = $this->Menu->children($v['Menu']['id'],true);
+					$lista[$k]['Menu']['filhos'] = $this->filhos($filhos);
+				} else {
+					$lista[$k]['Menu']['filhos'] = array();
+				}
+			}
+		}
+		return $lista;
 	}
 	
 	function montarFiltro(){
