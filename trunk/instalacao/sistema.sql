@@ -282,6 +282,31 @@ create table menus
    primary key (id)
 );
 
+INSERT INTO menus VALUES (1, NULL, 1, 2, 'HOME', 'home', '', 'principal', 'index', '', '2011-10-28 23:32:54', '2011-10-29 00:16:52');
+INSERT INTO menus VALUES (2, NULL, 3, 8, 'SECRETARIA', 'articles', '', '', '', '', '2011-10-28 23:57:54', '2011-10-29 00:16:52');
+INSERT INTO menus VALUES (3, 2, 4, 7, 'Cadastros', 'show subsubl', '', '', '', '', '2011-10-28 23:58:16', '2011-10-31 22:02:40');
+INSERT INTO menus VALUES (4, 3, 5, 6, 'Pessoas', 'user', '', 'pessoas', 'index', '', '2011-10-28 23:58:30', '2011-10-31 22:03:02');
+INSERT INTO menus VALUES (11, 10, 11, 12, 'Talões', 'articles', '', 'taloes', 'index', '', '2011-10-29 00:06:59', '2011-10-31 22:18:47');
+INSERT INTO menus VALUES (10, 9, 10, 13, 'Cadastros', 'show subsubl', '', '', '', '', '2011-10-29 00:06:45', '2011-10-31 22:06:46');
+INSERT INTO menus VALUES (9, NULL, 9, 14, 'TESOURARIA', 'tesouraria', '', '', '', '', '2011-10-29 00:05:51', '2011-10-29 00:16:52');
+INSERT INTO menus VALUES (12, NULL, 15, 20, 'ESCOLA BÍBLICA', 'escolabiblica', '', '', '', '', '2011-10-31 22:00:54', '2011-10-31 22:00:54');
+INSERT INTO menus VALUES (13, NULL, 21, 46, 'CONFIGURAÇÕES', 'settings', '', '', '', '', '2011-10-31 22:01:21', '2011-10-31 22:01:21');
+INSERT INTO menus VALUES (14, NULL, 47, 48, 'SAIR', 'logout', '', 'usuarios', 'logout', '', '2011-10-31 22:02:05', '2011-10-31 22:02:05');
+INSERT INTO menus VALUES (15, 12, 16, 17, 'Classes', 'articles', '', 'classes', 'index', '', '2011-10-31 22:08:46', '2011-10-31 22:08:46');
+INSERT INTO menus VALUES (16, 12, 18, 19, 'Turmas', 'articles', '', 'turmas', 'index', '', '2011-10-31 22:09:07', '2011-10-31 22:09:07');
+INSERT INTO menus VALUES (17, 13, 22, 23, 'Cidades', 'articles', '', 'cidades', 'index', '', '2011-10-31 22:11:34', '2011-10-31 22:11:34');
+INSERT INTO menus VALUES (18, 13, 24, 25, 'Profissões', 'articles', '', 'profissoes', 'index', '', '2011-10-31 22:11:56', '2011-10-31 22:11:56');
+INSERT INTO menus VALUES (19, 13, 26, 27, 'Congregações', 'articles', '', 'congregacoes', 'index', '', '2011-10-31 22:12:42', '2011-10-31 22:12:42');
+INSERT INTO menus VALUES (20, 13, 28, 29, 'Usuarios', 'articles', '', 'usuarios', 'index', '', '2011-10-31 22:13:44', '2011-10-31 22:13:58');
+INSERT INTO menus VALUES (21, 13, 30, 31, 'Tipo Pessoas', 'articles', '', 'tipopessoas', 'index', '', '2011-10-31 22:14:22', '2011-10-31 22:14:22');
+INSERT INTO menus VALUES (22, 13, 32, 33, 'Status', 'articles', '', 'status', 'index', '', '2011-10-31 22:15:03', '2011-10-31 22:15:03');
+INSERT INTO menus VALUES (23, 13, 34, 35, 'Grau de Instrução', 'articles', '', 'grauinstrucoes', 'index', '', '2011-10-31 22:15:40', '2011-10-31 22:15:40');
+INSERT INTO menus VALUES (24, 13, 36, 37, 'Plano de Contas', 'articles', '', 'planocontas', 'index', '', '2011-10-31 22:16:11', '2011-10-31 22:16:11');
+INSERT INTO menus VALUES (25, 13, 38, 39, 'Motivos', 'articles', '', 'motivos', 'index', '', '2011-10-31 22:16:29', '2011-10-31 22:16:29');
+INSERT INTO menus VALUES (26, 13, 40, 41, 'Estados Civis', 'articles', '', 'estadocivis', 'index', '', '2011-10-31 22:16:52', '2011-10-31 22:16:52');
+INSERT INTO menus VALUES (27, 13, 42, 43, 'Tipo Contatos', 'articles', '', 'tipocontatos', 'index', '', '2011-10-31 22:17:20', '2011-10-31 22:17:20');
+INSERT INTO menus VALUES (28, 13, 44, 45, 'Menus', 'articles', '', 'menus', 'index', '', '2011-10-31 22:17:42', '2011-10-31 22:17:42');
+
 /*==============================================================*/
 /* Table: modelocartoes                                         */
 /*==============================================================*/
