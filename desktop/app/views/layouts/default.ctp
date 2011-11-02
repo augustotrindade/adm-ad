@@ -6,7 +6,7 @@
 	</title>
 	<?php
 		echo $html->meta('icon');
-
+		
 		echo $html->css('desktop');
 		echo $html->css('menu');
 		echo $html->css('themes_jquery/jquery-ui-1.8.16.custom');

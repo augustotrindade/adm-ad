@@ -181,21 +181,9 @@ class PessoasController extends AppController {
 		$this->set('pessoas', $this->paginate('Pessoa',$this->definirFiltroLike($array)));
 	}
 	
-	function permicao(){
-		$aro = new Aro();
-		$users = array(
-			0 => array(
-				'alias'=>'admin',
-				'parent_id'=>1,
-				'model'=>'User',
-				'foreign_key'=>1
-			)
-		);
-		foreach ($users as $data) {
-			$aro->create();
-			$aro->save($data);
-		}
-		exit();
+	function teste(){
+		$u = $this->Pessoa->find('all');
+		$this->set('data',$u);
 	}
 }
 ?>
