@@ -1,7 +1,6 @@
 <?php
 class Modelocartao extends AppModel {
 	var $name = 'Modelocartao';
-	var $displayField = 'tipopessoa_id';
 	var $validate = array(
 		'tipopessoa_id' => array(
 			'notempty' => array(
