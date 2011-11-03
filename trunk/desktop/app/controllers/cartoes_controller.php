@@ -6,12 +6,19 @@ class CartoesController extends AppController {
 	function index() {
 		$this->set('tipopessoas',$this->Tipopessoa->find('list'));
 		$this->set('modelocartoes',$this->Modelocartao->find('list'));
-		$array = $this->montarFiltro();
-		$this->set('array',$array);
-		$this->set('cartoes', $this->paginate('Cartao',$this->definirFiltroLike($array)));
+		if(empty($this->data)){
+			$array = $this->montarFiltro();
+			$this->set('array',$array);
+			$this->set('cartoes', $this->paginate('Cartao',$this->definirFiltroLike($array)));
+		} else {
+			$this->set('array',array());
+			$this->set('cartoes', $this->paginate(array()));
+		}
 	}
 	
 	function add() {
+		$this->set('tipopessoas',$this->Tipopessoa->find('list'));
+		$this->set('modelocartoes',$this->Modelocartao->find('list'));
 	}
 	
 	function edit($id = null) {
