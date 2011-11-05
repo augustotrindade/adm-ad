@@ -1,13 +1,19 @@
 <div class="pessoas index">
-<?php echo $this->Session->flash(); ?>
-<? echo $form->create('Pessoa',array('action'=>'index')); ?>
-		<?php echo $form->input('status_id',array('empty'=>'.:: SELECIONE ::.','options'=>$status));?>
-		<?php echo $form->input('nome', array('size'=>'40','maxlength'=>'255')); ?>
-		<?php echo $form->submit('Pesquisar', array('div'=>false)); ?>
-		<?php echo $form->submit('Novo', array('type'=>'button','div'=>false,'onclick'=>'javascript:window.location.href="'.$html->url(array('controller'=>'pessoas','action'=>'add')).'"')); ?>
-<? echo $form->end() ?>
-<?= $this->Paginator->options(array('url' => array_merge($array, $this->passedArgs)));?>
+<?php 
+	echo $this->Session->flash(); 
+	echo $form->create('Pessoa',array('action'=>'index'));
+	echo $form->input('status_id',array('empty'=>'.:: SELECIONE ::.','options'=>$status));
+	echo $form->input('nome', array('size'=>'40','maxlength'=>'255'));
+	echo $form->submit('Pesquisar', array('div'=>false));
+	echo $form->submit('Novo', array('type'=>'button','div'=>false,'onclick'=>'javascript:window.location.href="'.$html->url(array('controller'=>'pessoas','action'=>'add')).'"')); 
+	echo $form->end(); 
+
+	echo $this->Paginator->options(array('url' => array_merge($array, $this->passedArgs)));
+?>
 <table cellpadding="0" cellspacing="0">
+		<?php 
+		//echo $html->tableHeaders(array($paginator->sort('id'),$paginator->sort('nome'),$paginator->sort('Congregação','Congregacao.nome'),$paginator->sort('Status','Status.nome')));
+		?>
 		<tr>
 			<th width="50px"><?php echo $paginator->sort('id');?></th>
 			<th><?php echo $paginator->sort('nome');?></th>
@@ -39,6 +45,7 @@
 				<td class="actions">
 					<?php echo $html->link(__('Editar', true), array('action'=>'edit', $pessoa['Pessoa']['id'])); ?>
 					<?php echo $html->link(__('Excluir', true), array('action'=>'delete', $pessoa['Pessoa']['id']), null, sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $pessoa['Pessoa']['id'])); ?>
+					<?php echo $extjs->linkConfirmYesNo('teste',array('action'=>'delete', $pessoa['Pessoa']['id']));?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
