@@ -2,7 +2,7 @@
 class PessoasController extends AppController {
 	
 	var $name = 'Pessoas';
-	var $helpers = array('Html','Form','Javascript','Xml','Ajax','Time','Cropimage','Number');
+	var $helpers = array('Html','Form','Javascript','Xml','Ajax','Time','Cropimage','Number','Extjs');
 	var $uses = array('Pessoa','Cidade','Congregacao','Estadocivil','Tipopessoa','Status','Filho','Tipocontato','Contato','Grauinstrucao','Motivo');
 	var $components = array( 'RequestHandler','Upload','JqImgcrop','Acl' );
 	var $destino = 'fotos_cartao/';
