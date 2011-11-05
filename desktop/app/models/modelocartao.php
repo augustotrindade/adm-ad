@@ -1,6 +1,10 @@
 <?php
 class Modelocartao extends AppModel {
 	var $name = 'Modelocartao';
+	var $displayField = "tipopessoa_nome";
+	var $virtualFields = array(
+		'tipopessoa_nome' => "(select nome from tipopessoas where id=Modelocartao.tipopessoa_id)"
+	);
 	var $validate = array(
 		'tipopessoa_id' => array(
 			'notempty' => array(
